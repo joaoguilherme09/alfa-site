@@ -1,0 +1,200 @@
+/* =========================
+   IMPORTS
+========================= */
+
+@import url("navbar.css");
+@import url("home.css");
+@import url("admin.css");
+
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+body {
+
+    font-family: Arial, sans-serif;
+
+    background-color: #f8fafc;
+
+    color: #1e293b;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   LINKS
+========================= */
+
+a {
+    text-decoration: none;
+}
+
+
+/* =========================
+   LISTAS
+========================= */
+
+ul {
+    list-style: none;
+}
+
+
+/* =========================
+   IMAGENS
+========================= */
+
+img {
+
+    max-width: 100%;
+
+    display: block;
+}
+
+
+/* =========================
+   BOTÕES GERAIS
+========================= */
+
+button {
+
+    border: none;
+
+    cursor: pointer;
+
+    font-family: inherit;
+}
+
+
+/* =========================
+   FORMULÁRIOS
+========================= */
+
+input,
+select,
+textarea,
+button {
+
+    outline: none;
+
+    font-family: inherit;
+}
+
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar {
+
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+
+    background: #e2e8f0;
+}
+
+::-webkit-scrollbar-thumb {
+
+    background: #2563eb;
+
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+
+    background: #1d4ed8;
+}
+
+
+/* =========================
+   CONTAINER PADRÃO
+========================= */
+
+.container {
+
+    width: 100%;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 0 20px;
+}
+
+
+/* =========================
+   TÍTULOS
+========================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+    font-weight: bold;
+
+    color: #0f172a;
+}
+
+
+/* =========================
+   PARÁGRAFOS
+========================= */
+
+p {
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   TRANSIÇÕES
+========================= */
+
+a,
+button,
+.card,
+.dashboard-card {
+
+    transition: 0.3s;
+}
+
+
+/* =========================
+   CLASSE OCULTA
+========================= */
+
+.hidden {
+
+    display: none;
+}
+
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 768px) {
+
+    body {
+
+        overflow-x: hidden;
+    }
+
+}

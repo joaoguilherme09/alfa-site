@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Matrículas | Alfa Admin
+    </title>
+
+    <!-- CSS -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+</head>
+
+<body>
+
+    <!-- ========================= -->
+    <!-- SIDEBAR -->
+    <!-- ========================= -->
+
+    <aside class="admin-sidebar">
+
+        <div class="admin-logo">
+
+            <h2>
+                Alfa Admin
+            </h2>
+
+        </div>
+
+        <nav>
+
+            <ul>
+
+                <li>
+                    <a href="/admin/dashboard">
+                        Dashboard
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/admin/alunos">
+                        Alunos
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="/admin/matriculas"
+                        class="active"
+                    >
+                        Matrículas
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/">
+                        Ver Site
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </aside>
+
+    <!-- ========================= -->
+    <!-- CONTEÚDO -->
+    <!-- ========================= -->
+
+    <main class="admin-content">
+
+        <div class="page-header">
+
+            <h1>
+                Gerenciamento de Matrículas
+            </h1>
+
+            <p>
+                Lista de matrículas realizadas no sistema.
+            </p>
+
+        </div>
+
+        <!-- ========================= -->
+        <!-- TABELA -->
+        <!-- ========================= -->
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Aluno</th>
+                        <th>Curso</th>
+                        <th>Status</th>
+                        <th>Data Matrícula</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% for matricula in matriculas %}
+
+                    <tr>
+
+                        <td>
+                            {{ matricula.id }}
+                        </td>
+
+                        <td>
+                            {{ matricula.aluno }}
+                        </td>
+
+                        <td>
+                            {{ matricula.curso }}
+                        </td>
+
+                        <td>
+                            {{ matricula.status }}
+                        </td>
+
+                        <td>
+                            {{ matricula.data_matricula }}
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

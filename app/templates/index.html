@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Alfa Cursos</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- ========================= -->
+    <!-- NAVBAR -->
+    <!-- ========================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+
+            <a href="/">
+
+                <img
+                    src="{{ url_for('static', filename='img/logo/logo.jpeg') }}"
+                    alt="Logo Alfa Cursos"
+                    class="logo-img"
+                >
+
+            </a>
+
+        </div>
+
+
+        <nav>
+
+            <ul class="menu">
+
+                <!-- DROPDOWN CURSOS -->
+                <li class="dropdown">
+
+                    <a href="#">
+                        Cursos ▼
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="/cursos/ingles">
+                                Inglês
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/cursos/informatica">
+                                Informática
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/cursos/enem">
+                                Preparatório ENEM
+                            </a>
+                        </li>
+                    </ul>
+
+                </li>
+
+                <!-- WHATSAPP -->
+                <li>
+                    <a
+                        href="https://wa.me/5511999999999"
+                        target="_blank"
+                    >
+                        Fale Conosco
+                    </a>
+                </li>
+
+                <!-- BOTÃO MATRÍCULA -->
+                <li>
+                    <a class="btn-matricula" href="/matricula">
+                        Me Matricular
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <!-- ========================= -->
+    <!-- BANNER -->
+    <!-- ========================= -->
+
+    <section class="banner">
+
+        <div class="banner-content">
+
+            <h1>
+                Transforme seu futuro com a Alfa Cursos
+            </h1>
+
+            <p>
+                Cursos profissionalizantes, idiomas e informática
+                para preparar você para o mercado.
+            </p>
+
+            <a href="/matricula" class="btn-banner">
+                Quero Me Matricular
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- CURSOS -->
+    <!-- ========================= -->
+
+    <section class="cursos">
+
+        <h2>
+            Nossos Cursos
+        </h2>
+
+        <div class="cards">
+
+            <!-- CARD -->
+            <div class="card">
+
+                <h3>Inglês</h3>
+
+                <p>
+                    Fluência, conversação e preparação profissional.
+                </p>
+
+                <a href="/cursos/ingles">
+                    Saiba Mais
+                </a>
+
+            </div>
+
+            <!-- CARD -->
+            <div class="card">
+
+                <h3>Informática</h3>
+
+                <p>
+                    Pacote Office, internet e tecnologia moderna.
+                </p>
+
+                <a href="/cursos/informatica">
+                    Saiba Mais
+                </a>
+
+            </div>
+
+            <!-- CARD -->
+            <div class="card">
+
+                <h3>Preparatório ENEM</h3>
+
+                <p>
+                    Reforço completo para vestibulares e concursos.
+                </p>
+
+                <a href="/cursos/enem">
+                    Saiba Mais
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- RODAPÉ -->
+    <!-- ========================= -->
+
+    <footer class="footer">
+
+        <p>
+            © 2026 Alfa Cursos - Todos os direitos reservados
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

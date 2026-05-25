@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cursos | Alfa Cursos</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- ========================= -->
+    <!-- NAVBAR -->
+    <!-- ========================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            <a href="/">
+                Alfa Cursos
+            </a>
+        </div>
+
+        <nav>
+
+            <ul class="menu">
+
+                <li class="dropdown">
+
+                    <a href="#">
+                        Cursos ▼
+                    </a>
+
+                    <ul class="dropdown-menu">
+
+                        <li>
+                            <a href="/cursos/ingles">
+                                Inglês
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/cursos/informatica">
+                                Informática
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/cursos/enem">
+                                Preparatório ENEM
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </li>
+
+                <li>
+                    <a
+                        href="https://wa.me/5511999999999"
+                        target="_blank"
+                    >
+                        Fale Conosco
+                    </a>
+                </li>
+
+                <li>
+                    <a class="btn-matricula" href="/matricula">
+                        Me Matricular
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <!-- ========================= -->
+    <!-- TÍTULO -->
+    <!-- ========================= -->
+
+    <section class="page-title">
+
+        <h1>
+            Conheça Nossos Cursos
+        </h1>
+
+        <p>
+            Escolha o curso ideal para transformar seu futuro.
+        </p>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- LISTA DE CURSOS -->
+    <!-- ========================= -->
+
+    <section class="cursos-page">
+
+        <div class="cards">
+
+            <!-- CURSO -->
+            <div class="card">
+
+                <h2>
+                    Inglês Instrumental e Fluência
+                </h2>
+
+                <p>
+                    Curso completo do básico ao avançado,
+                    com foco em conversação, leitura e mercado profissional.
+                </p>
+
+                <a href="/cursos/ingles">
+                    Ver Curso
+                </a>
+
+            </div>
+
+            <!-- CURSO -->
+            <div class="card">
+
+                <h2>
+                    Informática Essencial
+                </h2>
+
+                <p>
+                    Aprenda Windows, Word, Excel,
+                    internet e ferramentas digitais.
+                </p>
+
+                <a href="/cursos/informatica">
+                    Ver Curso
+                </a>
+
+            </div>
+
+            <!-- CURSO -->
+            <div class="card">
+
+                <h2>
+                    Preparatório ENEM
+                </h2>
+
+                <p>
+                    Revisão completa para vestibulares,
+                    concursos e redação.
+                </p>
+
+                <a href="/cursos/enem">
+                    Ver Curso
+                </a>
+
+            </div>
+
+            <!-- CURSO -->
+            <div class="card">
+
+                <h2>
+                    Excel Avançado para Negócios
+                </h2>
+
+                <p>
+                    Fórmulas, dashboards, gráficos,
+                    tabelas dinâmicas e automação.
+                </p>
+
+                <a href="/cursos/informatica">
+                    Ver Curso
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- RODAPÉ -->
+    <!-- ========================= -->
+
+    <footer class="footer">
+
+        <p>
+            © 2026 Alfa Cursos - Todos os direitos reservados
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

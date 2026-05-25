@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Alunos | Alfa Admin
+    </title>
+
+    <!-- CSS -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+</head>
+
+<body>
+
+    <!-- ========================= -->
+    <!-- SIDEBAR -->
+    <!-- ========================= -->
+
+    <aside class="admin-sidebar">
+
+        <div class="admin-logo">
+
+            <h2>
+                Alfa Admin
+            </h2>
+
+        </div>
+
+        <nav>
+
+            <ul>
+
+                <li>
+                    <a href="/admin/dashboard">
+                        Dashboard
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="/admin/alunos"
+                        class="active"
+                    >
+                        Alunos
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/admin/matriculas">
+                        Matrículas
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/">
+                        Ver Site
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </aside>
+
+    <!-- ========================= -->
+    <!-- CONTEÚDO -->
+    <!-- ========================= -->
+
+    <main class="admin-content">
+
+        <div class="page-header">
+
+            <h1>
+                Gerenciamento de Alunos
+            </h1>
+
+            <p>
+                Lista de alunos cadastrados no sistema.
+            </p>
+
+        </div>
+
+        <!-- ========================= -->
+        <!-- TABELA -->
+        <!-- ========================= -->
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Telefone</th>
+                        <th>Data Nascimento</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% for aluno in alunos %}
+
+                    <tr>
+
+                        <td>
+                            {{ aluno.id }}
+                        </td>
+
+                        <td>
+                            {{ aluno.nome }}
+                        </td>
+
+                        <td>
+                            {{ aluno.email }}
+                        </td>
+
+                        <td>
+                            {{ aluno.telefone }}
+                        </td>
+
+                        <td>
+                            {{ aluno.data_nascimento }}
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

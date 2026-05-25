@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Matrícula | Alfa Cursos</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- ========================= -->
+    <!-- NAVBAR -->
+    <!-- ========================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            <a href="/">
+                Alfa Cursos
+            </a>
+        </div>
+
+        <nav>
+
+            <ul class="menu">
+
+                <li class="dropdown">
+
+                    <a href="#">
+                        Cursos ▼
+                    </a>
+
+                    <ul class="dropdown-menu">
+
+                        <li>
+                            <a href="/cursos/ingles">
+                                Inglês
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/cursos/informatica">
+                                Informática
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/cursos/enem">
+                                Preparatório ENEM
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </li>
+
+                <li>
+                    <a
+                        href="https://wa.me/5511999999999"
+                        target="_blank"
+                    >
+                        Fale Conosco
+                    </a>
+                </li>
+
+                <li>
+                    <a class="btn-matricula" href="/matricula">
+                        Me Matricular
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <!-- ========================= -->
+    <!-- FORMULÁRIO -->
+    <!-- ========================= -->
+
+    <section class="matricula-section">
+
+        <div class="matricula-container">
+
+            <h1>
+                Faça sua Matrícula
+            </h1>
+
+            <p>
+                Preencha os dados abaixo para iniciar sua jornada.
+            </p>
+
+            <form action="/matricula" method="POST">
+
+                <!-- NOME -->
+                <div class="form-group">
+
+                    <label>
+                        Nome Completo
+                    </label>
+
+                    <input
+                        type="text"
+                        name="nome"
+                        placeholder="Digite seu nome"
+                        required
+                    >
+
+                </div>
+
+                <!-- EMAIL -->
+                <div class="form-group">
+
+                    <label>
+                        E-mail
+                    </label>
+
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Digite seu e-mail"
+                        required
+                    >
+
+                </div>
+
+                <!-- TELEFONE -->
+                <div class="form-group">
+
+                    <label>
+                        Telefone
+                    </label>
+
+                    <input
+                        type="text"
+                        name="telefone"
+                        placeholder="(11) 99999-9999"
+                        required
+                    >
+
+                </div>
+
+                <!-- DATA NASCIMENTO -->
+                <div class="form-group">
+
+                    <label>
+                        Data de Nascimento
+                    </label>
+
+                    <input
+                        type="date"
+                        name="data_nascimento"
+                        required
+                    >
+
+                </div>
+
+                <!-- CURSO -->
+                <div class="form-group">
+
+                    <label>
+                        Curso Desejado
+                    </label>
+
+                    <select name="cursos_id" required>
+
+                        <option value="">
+                            Selecione um curso
+                        </option>
+
+                        <option value="1">
+                            Inglês Instrumental e Fluência
+                        </option>
+
+                        <option value="2">
+                            Informática Essencial
+                        </option>
+
+                        <option value="3">
+                            Preparatório ENEM
+                        </option>
+
+                        <option value="4">
+                            Excel Avançado para Negócios
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <!-- BOTÃO -->
+                <button type="submit" class="btn-form">
+                    Finalizar Matrícula
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- RODAPÉ -->
+    <!-- ========================= -->
+
+    <footer class="footer">
+
+        <p>
+            © 2026 Alfa Cursos - Todos os direitos reservados
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

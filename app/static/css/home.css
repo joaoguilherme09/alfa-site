@@ -1,0 +1,319 @@
+/* =========================
+   HOME PAGE
+========================= */
+
+
+/* =========================
+   BANNER
+========================= */
+
+.banner {
+
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 20px;
+
+    background:
+        linear-gradient(
+            rgba(37, 99, 235, 0.75),
+            rgba(30, 64, 175, 0.80)
+        ),
+        url("../img/banner/banner.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+/* CONTEÚDO */
+
+.banner-content {
+
+    max-width: 850px;
+
+    color: white;
+}
+
+
+/* TÍTULO */
+
+.banner-content h1 {
+
+    font-size: 64px;
+
+    line-height: 1.2;
+
+    margin-bottom: 25px;
+
+    font-weight: bold;
+}
+
+
+/* TEXTO */
+
+.banner-content p {
+
+    font-size: 22px;
+
+    line-height: 1.7;
+
+    margin-bottom: 35px;
+}
+
+
+/* BOTÃO */
+
+.btn-banner {
+
+    display: inline-block;
+
+    background-color: white;
+
+    color: #2563eb;
+
+    padding: 16px 34px;
+
+    border-radius: 10px;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.btn-banner:hover {
+
+    transform: translateY(-3px);
+
+    background-color: #eff6ff;
+}
+
+
+/* =========================
+   CURSOS
+========================= */
+
+.cursos {
+
+    padding: 100px 60px;
+
+    background-color: #f8fafc;
+
+    text-align: center;
+}
+
+
+/* TÍTULO */
+
+.cursos h2 {
+
+    font-size: 42px;
+
+    color: #0f172a;
+
+    margin-bottom: 60px;
+}
+
+
+/* GRID */
+
+.cards {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+    gap: 30px;
+}
+
+
+/* CARD */
+
+.card {
+
+    background-color: white;
+
+    padding: 35px 25px;
+
+    border-radius: 16px;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+
+    transition: 0.3s;
+
+    opacity: 0;
+
+    transform: translateY(40px);
+}
+
+
+/* ANIMAÇÃO */
+
+.card.show {
+
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* HOVER */
+
+.card:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+
+/* TÍTULO */
+
+.card h3 {
+
+    font-size: 26px;
+
+    margin-bottom: 18px;
+
+    color: #2563eb;
+}
+
+
+/* TEXTO */
+
+.card p {
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    color: #475569;
+
+    margin-bottom: 25px;
+}
+
+
+/* LINK */
+
+.card a {
+
+    display: inline-block;
+
+    color: white;
+
+    background-color: #2563eb;
+
+    padding: 12px 22px;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.card a:hover {
+
+    background-color: #1d4ed8;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+
+    background-color: #0f172a;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 25px;
+}
+
+
+/* =========================
+   BOTÃO TOPO
+========================= */
+
+.back-to-top {
+
+    position: fixed;
+
+    bottom: 30px;
+    right: 30px;
+
+    width: 50px;
+    height: 50px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background-color: #2563eb;
+
+    color: white;
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+
+    transition: 0.3s;
+
+    z-index: 999;
+}
+
+.back-to-top:hover {
+
+    background-color: #1d4ed8;
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 768px) {
+
+    .banner-content h1 {
+
+        font-size: 42px;
+    }
+
+    .banner-content p {
+
+        font-size: 18px;
+    }
+
+    .cursos {
+
+        padding: 80px 20px;
+    }
+
+    .cursos h2 {
+
+        font-size: 34px;
+    }
+
+}

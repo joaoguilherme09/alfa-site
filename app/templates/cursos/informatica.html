@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Informática Essencial | Alfa Cursos
+    </title>
+
+    <!-- CSS -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+</head>
+
+<body>
+
+    <!-- ========================= -->
+    <!-- NAVBAR -->
+    <!-- ========================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+
+            <a href="/">
+                Alfa Cursos
+            </a>
+
+        </div>
+
+        <nav>
+
+            <ul class="menu">
+
+                <li class="dropdown">
+
+                    <a href="#">
+                        Cursos ▼
+                    </a>
+
+                    <ul class="dropdown-menu">
+
+                        <li>
+                            <a href="/cursos/ingles">
+                                Inglês
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/cursos/informatica">
+                                Informática
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/cursos/enem">
+                                Preparatório ENEM
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </li>
+
+                <li>
+
+                    <a
+                        href="https://wa.me/5511999999999"
+                        target="_blank"
+                    >
+                        Fale Conosco
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a
+                        href="/matricula"
+                        class="btn-matricula"
+                    >
+                        Me Matricular
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <!-- ========================= -->
+    <!-- HERO -->
+    <!-- ========================= -->
+
+    <section class="curso-hero">
+
+        <div class="curso-hero-content">
+
+            <h1>
+                Informática Essencial
+            </h1>
+
+            <p>
+                Aprenda informática do básico ao avançado
+                e prepare-se para o mercado de trabalho.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- SOBRE -->
+    <!-- ========================= -->
+
+    <section class="curso-info">
+
+        <div class="curso-container">
+
+            <h2>
+                Sobre o Curso
+            </h2>
+
+            <p>
+                O curso de Informática Essencial da Alfa Cursos
+                ensina desde os conceitos básicos do computador
+                até ferramentas profissionais utilizadas em empresas.
+            </p>
+
+            <p>
+                O aluno aprende Windows, internet,
+                Word, Excel, PowerPoint e noções
+                importantes de produtividade digital.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- BENEFÍCIOS -->
+    <!-- ========================= -->
+
+    <section class="curso-beneficios">
+
+        <h2>
+            O que você vai aprender
+        </h2>
+
+        <div class="beneficios-grid">
+
+            <div class="beneficio-card">
+
+                <h3>
+                    Pacote Office
+                </h3>
+
+                <p>
+                    Word, Excel e PowerPoint na prática.
+                </p>
+
+            </div>
+
+            <div class="beneficio-card">
+
+                <h3>
+                    Internet e Tecnologia
+                </h3>
+
+                <p>
+                    Navegação segura e ferramentas modernas.
+                </p>
+
+            </div>
+
+            <div class="beneficio-card">
+
+                <h3>
+                    Mercado de Trabalho
+                </h3>
+
+                <p>
+                    Conhecimentos essenciais para empresas.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- CTA -->
+    <!-- ========================= -->
+
+    <section class="curso-cta">
+
+        <h2>
+            Dê o próximo passo para sua carreira
+        </h2>
+
+        <a
+            href="/matricula"
+            class="btn-curso"
+        >
+            Fazer Matrícula
+        </a>
+
+    </section>
+
+    <!-- ========================= -->
+    <!-- RODAPÉ -->
+    <!-- ========================= -->
+
+    <footer class="footer">
+
+        <p>
+            © 2026 Alfa Cursos - Todos os direitos reservados
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
