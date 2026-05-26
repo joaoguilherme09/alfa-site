@@ -67,3 +67,31 @@ INSERT INTO matriculas (aluno_id, cursos_id, status) VALUES
 INSERT INTO administradores (nome, email, senha) VALUES
 ('Admin Geral', 'admin@alfasite.com', 'senha_super_segura_123'),
 ('Suporte Alfa', 'suporte@alfasite.com', 'suporte_alfa_2026');
+
+
+
+
+
+
+----------------------
+
+-criar aba para administradores
+-criar dashboard para administradores
+-cursos preparatórios
+-alfabetização
+  -> enem
+  ->embraer
+-deixar a foto png
+-mostrar a localização
+-mostrar unidades
+-no final da tela inicial, mostrar os cursos de forma simples
+-adicionar redes sociais
+-(sobre nós) criar uma tela sobre a escola (blog)
+-fotos em destaque (como a da fisk)
+-contato
+-termo de privacidade (politica de privacidade)
+-fotos de alunos na tela principal (escola pnr)
+-mural de aprovados
+-outro botao bem chamativo convidando pro whatsapp
+-horarios disponiveis
+-agende sua visita / aula experimental
