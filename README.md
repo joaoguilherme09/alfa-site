@@ -95,3 +95,4 @@ INSERT INTO administradores (nome, email, senha) VALUES
 -outro botao bem chamativo convidando pro whatsapp
 -horarios disponiveis
 -agende sua visita / aula experimental
+-funcionarios
