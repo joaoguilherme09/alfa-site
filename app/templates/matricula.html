@@ -21,7 +21,11 @@
 
         <div class="logo">
             <a href="/">
-                Alfa Cursos
+                <img
+                    src="{{ url_for('static', filename='img/logo/logo.jpeg') }}"
+                    alt="Logo Alfa Cursos"
+                    class="logo-img"
+                >
             </a>
         </div>
 
@@ -61,7 +65,7 @@
 
                 <li>
                     <a
-                        href="https://wa.me/5511999999999"
+                        href="https://wa.me/5512997781432"
                         target="_blank"
                     >
                         Fale Conosco
@@ -140,7 +144,7 @@
                     <input
                         type="text"
                         name="telefone"
-                        placeholder="(11) 99999-9999"
+                        placeholder="(12) 99778-1432"
                         required
                     >
 
@@ -168,7 +172,7 @@
                         Curso Desejado
                     </label>
 
-                    <select name="cursos_id" required>
+                    <select name="curso" required>
 
                         <option value="">
                             Selecione um curso

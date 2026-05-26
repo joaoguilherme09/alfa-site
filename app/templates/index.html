@@ -2,23 +2,36 @@
 <html lang="pt-br">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Alfa Cursos</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+    <!-- ICONS -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    >
+
 </head>
 
 <body>
 
-    <!-- ========================= -->
+    <!-- ========================================= -->
     <!-- NAVBAR -->
-    <!-- ========================= -->
+    <!-- ========================================= -->
 
     <header class="navbar">
 
+        <!-- LOGO -->
         <div class="logo">
 
             <a href="/">
@@ -34,18 +47,20 @@
         </div>
 
 
+        <!-- MENU -->
         <nav>
 
             <ul class="menu">
 
-                <!-- DROPDOWN CURSOS -->
+                <!-- CURSOS -->
                 <li class="dropdown">
 
                     <a href="#">
-                        Cursos ▼
+                        Cursos
                     </a>
 
                     <ul class="dropdown-menu">
+
                         <li>
                             <a href="/cursos/ingles">
                                 Inglês
@@ -63,51 +78,347 @@
                                 Preparatório ENEM
                             </a>
                         </li>
+
                     </ul>
 
                 </li>
 
+
                 <!-- WHATSAPP -->
                 <li>
+
                     <a
-                        href="https://wa.me/5511999999999"
+                        href="https://wa.me/5512997781432"
                         target="_blank"
                     >
                         Fale Conosco
                     </a>
+
                 </li>
 
-                <!-- BOTÃO MATRÍCULA -->
+
+                <!-- BOTÃO -->
                 <li>
-                    <a class="btn-matricula" href="/matricula">
+
+                    <a
+                        href="/matricula"
+                        class="btn-matricula"
+                    >
                         Me Matricular
                     </a>
+
                 </li>
 
             </ul>
 
         </nav>
 
+
+        <!-- MOBILE -->
+        <div class="mobile-menu-button">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </div>
+
     </header>
 
-    <!-- ========================= -->
-    <!-- BANNER -->
-    <!-- ========================= -->
 
-    <section class="banner">
+    <!-- ========================================= -->
+    <!-- HERO -->
+    <!-- ========================================= -->
 
-        <div class="banner-content">
+    <section class="hero">
 
-            <h1>
-                Transforme seu futuro com a Alfa Cursos
-            </h1>
+        <div class="hero-container">
+
+            <!-- TEXTO -->
+            <div class="hero-text">
+
+                <span>
+                    ✨ Transforme seu futuro hoje
+                </span>
+
+                <h1>
+                    Aprenda com quem realmente prepara você para o mercado
+                </h1>
+
+                <p>
+
+                    Cursos profissionalizantes, informática,
+                    inglês e preparatórios completos para você
+                    conquistar novas oportunidades.
+
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a
+                        href="/matricula"
+                        class="hero-btn hero-btn-primary"
+                    >
+                        Começar Agora
+                    </a>
+
+                    <a
+                        href="https://wa.me/5512997781432"
+                        target="_blank"
+                        class="hero-btn hero-btn-secondary"
+                    >
+                        Falar no WhatsApp
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- IMAGEM -->
+            <div class="hero-image">
+
+                <img
+                    src="{{ url_for('static', filename='img/logo/logo.jpeg') }}"
+                    alt="Alfa Cursos"
+                >
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================= -->
+    <!-- CURSOS -->
+    <!-- ========================================= -->
+
+    <section class="cursos">
+
+        <div class="container">
+
+            <!-- TÍTULO -->
+            <div class="section-title">
+
+                <h2>
+                    Nossos Cursos
+                </h2>
+
+                <p>
+
+                    Escolha a área ideal para desenvolver
+                    suas habilidades e crescer profissionalmente.
+
+                </p>
+
+            </div>
+
+
+            <!-- GRID -->
+            <div class="cursos-grid">
+
+
+                <!-- CARD -->
+                <div class="curso-card">
+
+                    <div class="curso-icon">
+
+                        <i class="fa-solid fa-language"></i>
+
+                    </div>
+
+                    <h3>
+                        Inglês
+                    </h3>
+
+                    <p>
+
+                        Aprenda conversação, escrita e fluência
+                        completa com metodologia moderna.
+
+                    </p>
+
+                    <a
+                        href="/cursos/ingles"
+                        class="curso-link"
+                    >
+                        Saiba Mais →
+                    </a>
+
+                </div>
+
+
+                <!-- CARD -->
+                <div class="curso-card">
+
+                    <div class="curso-icon">
+
+                        <i class="fa-solid fa-computer"></i>
+
+                    </div>
+
+                    <h3>
+                        Informática
+                    </h3>
+
+                    <p>
+
+                        Domine Windows, Office, internet,
+                        Excel e ferramentas profissionais.
+
+                    </p>
+
+                    <a
+                        href="/cursos/informatica"
+                        class="curso-link"
+                    >
+                        Saiba Mais →
+                    </a>
+
+                </div>
+
+
+                <!-- CARD -->
+                <div class="curso-card">
+
+                    <div class="curso-icon">
+
+                        <i class="fa-solid fa-book-open"></i>
+
+                    </div>
+
+                    <h3>
+                        Preparatório ENEM
+                    </h3>
+
+                    <p>
+
+                        Aulas completas, simulados e reforço
+                        intensivo para vestibulares e concursos.
+
+                    </p>
+
+                    <a
+                        href="/cursos/enem"
+                        class="curso-link"
+                    >
+                        Saiba Mais →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================= -->
+    <!-- DIFERENCIAIS -->
+    <!-- ========================================= -->
+
+    <section class="diferenciais">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>
+                    Por que escolher a Alfa?
+                </h2>
+
+            </div>
+
+
+            <div class="diferenciais-grid">
+
+
+                <!-- CARD -->
+                <div class="diferencial-card">
+
+                    <i class="fa-solid fa-user-graduate"></i>
+
+                    <h3>
+                        Professores Qualificados
+                    </h3>
+
+                    <p>
+
+                        Equipe preparada para acelerar
+                        seu aprendizado.
+
+                    </p>
+
+                </div>
+
+
+                <!-- CARD -->
+                <div class="diferencial-card">
+
+                    <i class="fa-solid fa-certificate"></i>
+
+                    <h3>
+                        Certificação
+                    </h3>
+
+                    <p>
+
+                        Receba certificado válido
+                        ao concluir seu curso.
+
+                    </p>
+
+                </div>
+
+
+                <!-- CARD -->
+                <div class="diferencial-card">
+
+                    <i class="fa-solid fa-laptop"></i>
+
+                    <h3>
+                        Metodologia Moderna
+                    </h3>
+
+                    <p>
+
+                        Ensino atualizado e focado
+                        no mercado atual.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================= -->
+    <!-- CTA -->
+    <!-- ========================================= -->
+
+    <section class="cta">
+
+        <div class="cta-box">
+
+            <h2>
+                Comece sua jornada hoje
+            </h2>
 
             <p>
-                Cursos profissionalizantes, idiomas e informática
-                para preparar você para o mercado.
+
+                Faça parte da Alfa Cursos e prepare-se
+                para novas oportunidades profissionais.
+
             </p>
 
-            <a href="/matricula" class="btn-banner">
+            <a
+                href="/matricula"
+                class="btn"
+            >
                 Quero Me Matricular
             </a>
 
@@ -115,75 +426,17 @@
 
     </section>
 
-    <!-- ========================= -->
-    <!-- CURSOS -->
-    <!-- ========================= -->
 
-    <section class="cursos">
-
-        <h2>
-            Nossos Cursos
-        </h2>
-
-        <div class="cards">
-
-            <!-- CARD -->
-            <div class="card">
-
-                <h3>Inglês</h3>
-
-                <p>
-                    Fluência, conversação e preparação profissional.
-                </p>
-
-                <a href="/cursos/ingles">
-                    Saiba Mais
-                </a>
-
-            </div>
-
-            <!-- CARD -->
-            <div class="card">
-
-                <h3>Informática</h3>
-
-                <p>
-                    Pacote Office, internet e tecnologia moderna.
-                </p>
-
-                <a href="/cursos/informatica">
-                    Saiba Mais
-                </a>
-
-            </div>
-
-            <!-- CARD -->
-            <div class="card">
-
-                <h3>Preparatório ENEM</h3>
-
-                <p>
-                    Reforço completo para vestibulares e concursos.
-                </p>
-
-                <a href="/cursos/enem">
-                    Saiba Mais
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- ========================= -->
-    <!-- RODAPÉ -->
-    <!-- ========================= -->
+    <!-- ========================================= -->
+    <!-- FOOTER -->
+    <!-- ========================================= -->
 
     <footer class="footer">
 
         <p>
-            © 2026 Alfa Cursos - Todos os direitos reservados
+
+            © 2026 Alfa Cursos — Todos os direitos reservados
+
         </p>
 
     </footer>

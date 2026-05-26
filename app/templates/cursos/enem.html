@@ -33,7 +33,11 @@
         <div class="logo">
 
             <a href="/">
-                Alfa Cursos
+                <img
+                    src="{{ url_for('static', filename='img/logo/logo.jpeg') }}"
+                    alt="Logo Alfa Cursos"
+                    class="logo-img"
+                >
             </a>
 
         </div>
@@ -75,7 +79,7 @@
                 <li>
 
                     <a
-                        href="https://wa.me/5511999999999"
+                        href="https://wa.me/5512997781432"
                         target="_blank"
                     >
                         Fale Conosco
@@ -104,18 +108,42 @@
     <!-- HERO -->
     <!-- ========================= -->
 
-    <section class="curso-hero">
+    <section class="curso-hero enem-hero">
+
+        <div class="curso-hero-overlay"></div>
 
         <div class="curso-hero-content">
 
+            <span class="curso-tag">
+                APROVAÇÃO GARANTIDA
+            </span>
+
             <h1>
-                Preparatório ENEM e Vestibulares
+                Prepare-se para o ENEM com quem entende de aprovação
             </h1>
 
             <p>
-                Prepare-se para conquistar sua aprovação
-                com aulas completas, simulados e redação.
+                Aulas completas, simulados, redação e acompanhamento
+                especializado para você conquistar sua vaga na faculdade.
             </p>
+
+            <div class="hero-buttons">
+
+                <a
+                    href="/matricula"
+                    class="btn-curso"
+                >
+                    Fazer Matrícula
+                </a>
+
+                <a
+                    href="#beneficios"
+                    class="btn-secondary"
+                >
+                    Saiba Mais
+                </a>
+
+            </div>
 
         </div>
 
@@ -129,22 +157,63 @@
 
         <div class="curso-container">
 
-            <h2>
-                Sobre o Curso
-            </h2>
+            <div class="curso-text">
 
-            <p>
-                O curso Preparatório ENEM da Alfa Cursos
-                foi desenvolvido para alunos que desejam
-                alcançar alto desempenho em vestibulares,
-                concursos e no ENEM.
-            </p>
+                <span class="section-tag">
+                    SOBRE O CURSO
+                </span>
 
-            <p>
-                Com professores especializados, simulados
-                frequentes e foco em redação, o aluno recebe
-                acompanhamento completo durante toda a preparação.
-            </p>
+                <h2>
+                    Preparação completa para ENEM e Vestibulares
+                </h2>
+
+                <p>
+                    O Preparatório ENEM da Alfa Cursos foi criado para
+                    alunos que desejam alcançar alto desempenho nas
+                    principais provas do país.
+                </p>
+
+                <p>
+                    Com metodologia moderna, professores experientes
+                    e simulados frequentes, o aluno desenvolve
+                    conhecimento, estratégia e confiança para o exame.
+                </p>
+
+            </div>
+
+            <div class="curso-box">
+
+                <div class="info-item">
+                    <h3>
+                        Duração
+                    </h3>
+
+                    <p>
+                        4 meses
+                    </p>
+                </div>
+
+                <div class="info-item">
+                    <h3>
+                        Modalidade
+                    </h3>
+
+                    <p>
+                        Presencial
+                    </p>
+                </div>
+
+                <div class="info-item">
+                    <h3>
+                        Simulados
+                    </h3>
+
+                    <p>
+                        Semanais
+                    </p>
+                </div>
+
+            </div>
 
         </div>
 
@@ -154,46 +223,72 @@
     <!-- BENEFÍCIOS -->
     <!-- ========================= -->
 
-    <section class="curso-beneficios">
+    <section
+        class="curso-beneficios"
+        id="beneficios"
+    >
 
-        <h2>
-            O que você vai aprender
-        </h2>
+        <div class="section-header">
+
+            <span class="section-tag">
+                BENEFÍCIOS
+            </span>
+
+            <h2>
+                O que você vai aprender
+            </h2>
+
+        </div>
 
         <div class="beneficios-grid">
 
             <div class="beneficio-card">
+
+                <div class="beneficio-icon">
+                    ✍️
+                </div>
 
                 <h3>
                     Redação Nota 1000
                 </h3>
 
                 <p>
-                    Técnicas de escrita e argumentação.
+                    Técnicas avançadas de escrita,
+                    argumentação e interpretação.
                 </p>
 
             </div>
 
             <div class="beneficio-card">
 
-                <h3>
-                    Simulados
-                </h3>
-
-                <p>
-                    Testes práticos para preparação real.
-                </p>
-
-            </div>
-
-            <div class="beneficio-card">
+                <div class="beneficio-icon">
+                    📚
+                </div>
 
                 <h3>
                     Revisão Completa
                 </h3>
 
                 <p>
-                    Conteúdo focado nos temas mais cobrados.
+                    Conteúdo atualizado com foco
+                    nos temas mais cobrados.
+                </p>
+
+            </div>
+
+            <div class="beneficio-card">
+
+                <div class="beneficio-icon">
+                    📝
+                </div>
+
+                <h3>
+                    Simulados Reais
+                </h3>
+
+                <p>
+                    Experiência prática baseada
+                    no modelo oficial do ENEM.
                 </p>
 
             </div>
@@ -208,16 +303,25 @@
 
     <section class="curso-cta">
 
-        <h2>
-            Comece sua preparação hoje mesmo
-        </h2>
+        <div class="cta-content">
 
-        <a
-            href="/matricula"
-            class="btn-curso"
-        >
-            Fazer Matrícula
-        </a>
+            <h2>
+                Sua aprovação começa agora
+            </h2>
+
+            <p>
+                Faça parte da Alfa Cursos e prepare-se
+                com quem realmente entende de resultado.
+            </p>
+
+            <a
+                href="/matricula"
+                class="btn-curso"
+            >
+                Garantir Minha Vaga
+            </a>
+
+        </div>
 
     </section>
 

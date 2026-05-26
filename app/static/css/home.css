@@ -1,16 +1,573 @@
-/* =========================
-   HOME PAGE
-========================= */
+/* =========================================
+   HERO SECTION
+========================================= */
 
-
-/* =========================
-   BANNER
-========================= */
-
-.banner {
+.hero {
 
     width: 100%;
-    height: 100vh;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(37,99,235,0.92),
+            rgba(59,130,246,0.88)
+        );
+
+    padding: 140px 0 80px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* FUNDO DECORATIVO */
+
+.hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 700px;
+    height: 700px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.08);
+
+    top: -250px;
+    right: -150px;
+}
+
+
+/* CONTAINER */
+
+.hero-container {
+
+    width: 100%;
+
+    max-width: 1300px;
+
+    margin: 0 auto;
+
+    padding: 0 30px;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 60px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================================
+   HERO TEXT
+========================================= */
+
+.hero-text {
+
+    flex: 1;
+}
+
+.hero-text span {
+
+    display: inline-block;
+
+    padding: 10px 18px;
+
+    border-radius: 50px;
+
+    background: rgba(255,255,255,0.15);
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    margin-bottom: 25px;
+
+    backdrop-filter: blur(10px);
+}
+
+.hero-text h1 {
+
+    font-size: 4rem;
+
+    line-height: 1.1;
+
+    color: white;
+
+    margin-bottom: 25px;
+}
+
+.hero-text p {
+
+    max-width: 600px;
+
+    color: rgba(255,255,255,0.9);
+
+    font-size: 18px;
+
+    margin-bottom: 35px;
+}
+
+
+/* BOTÕES */
+
+.hero-buttons {
+
+    display: flex;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+}
+
+.hero-btn {
+
+    padding: 16px 32px;
+
+    border-radius: 14px;
+
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+
+/* BOTÃO PRINCIPAL */
+
+.hero-btn-primary {
+
+    background: white;
+
+    color: #2563eb;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.12);
+}
+
+.hero-btn-primary:hover {
+
+    transform: translateY(-4px);
+
+    background: #eff6ff;
+}
+
+
+/* BOTÃO SECUNDÁRIO */
+
+.hero-btn-secondary {
+
+    border: 2px solid rgba(255,255,255,0.4);
+
+    color: white;
+
+    backdrop-filter: blur(10px);
+}
+
+.hero-btn-secondary:hover {
+
+    background: rgba(255,255,255,0.12);
+
+    transform: translateY(-4px);
+}
+
+
+/* =========================================
+   HERO IMAGE
+========================================= */
+
+.hero-image {
+
+    flex: 1;
+
+    display: flex;
+
+    justify-content: center;
+}
+
+.hero-image img {
+
+    width: 100%;
+
+    max-width: 560px;
+
+    animation: float 4s ease-in-out infinite;
+}
+
+
+/* ANIMAÇÃO */
+
+@keyframes float {
+
+    0% {
+
+        transform: translateY(0px);
+    }
+
+    50% {
+
+        transform: translateY(-15px);
+    }
+
+    100% {
+
+        transform: translateY(0px);
+    }
+}
+
+
+/* =========================================
+   CURSOS
+========================================= */
+
+.cursos {
+
+    padding: 100px 0;
+
+    background: #f8fafc;
+}
+
+.section-title {
+
+    text-align: center;
+
+    margin-bottom: 70px;
+}
+
+.section-title h2 {
+
+    font-size: 2.8rem;
+
+    margin-bottom: 15px;
+}
+
+.section-title p {
+
+    max-width: 700px;
+
+    margin: 0 auto;
+}
+
+
+/* GRID */
+
+.cursos-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(320px, 1fr));
+
+    gap: 35px;
+}
+
+
+/* CARD */
+
+.curso-card {
+
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.06);
+
+    transition: 0.4s ease;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* LINHA TOPO */
+
+.curso-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 6px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #2563eb,
+            #60a5fa
+        );
+}
+
+
+/* HOVER */
+
+.curso-card:hover {
+
+    transform: translateY(-12px);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.12);
+}
+
+
+/* ÍCONE */
+
+.curso-icon {
+
+    width: 75px;
+    height: 75px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #3b82f6
+        );
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+
+    font-size: 30px;
+
+    margin-bottom: 25px;
+}
+
+
+/* TEXTO */
+
+.curso-card h3 {
+
+    font-size: 1.5rem;
+
+    margin-bottom: 15px;
+}
+
+.curso-card p {
+
+    margin-bottom: 25px;
+}
+
+
+/* LINK */
+
+.curso-link {
+
+    color: #2563eb;
+
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+.curso-link:hover {
+
+    color: #1d4ed8;
+}
+
+
+/* =========================================
+   DIFERENCIAIS
+========================================= */
+
+.diferenciais {
+
+    padding: 100px 0;
+
+    background: white;
+}
+
+
+/* GRID */
+
+.diferenciais-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 30px;
+}
+
+
+/* CARD */
+
+.diferencial-card {
+
+    text-align: center;
+
+    padding: 40px 30px;
+
+    border-radius: 22px;
+
+    background: #f8fafc;
+
+    transition: 0.3s ease;
+}
+
+.diferencial-card:hover {
+
+    transform: translateY(-8px);
+
+    background: white;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.08);
+}
+
+.diferencial-card i {
+
+    font-size: 45px;
+
+    color: #2563eb;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================
+   CTA
+========================================= */
+
+.cta {
+
+    padding: 100px 30px;
+}
+
+.cta-box {
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 70px;
+
+    border-radius: 35px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #1d4ed8
+        );
+
+    color: white;
+
+    box-shadow:
+        0 20px 50px rgba(37,99,235,0.25);
+}
+
+.cta-box h2 {
+
+    font-size: 3rem;
+
+    color: white;
+
+    margin-bottom: 20px;
+}
+
+.cta-box p {
+
+    color: rgba(255,255,255,0.9);
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================================
+   RESPONSIVO
+========================================= */
+
+@media (max-width: 992px) {
+
+    .hero-container {
+
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .hero-text p {
+
+        margin: 0 auto 35px;
+    }
+
+    .hero-buttons {
+
+        justify-content: center;
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    .hero {
+
+        padding-top: 120px;
+    }
+
+    .hero-text h1 {
+
+        font-size: 2.8rem;
+    }
+
+    .section-title h2 {
+
+        font-size: 2.2rem;
+    }
+
+    .cta-box {
+
+        padding: 50px 30px;
+    }
+
+    .cta-box h2 {
+
+        font-size: 2.2rem;
+    }
+
+}
+
+/* =========================================
+   PÁGINAS DOS CURSOS
+========================================= */
+
+.curso-hero {
+
+    width: 100%;
+
+    min-height: 90vh;
 
     display: flex;
 
@@ -19,301 +576,626 @@
 
     text-align: center;
 
-    padding: 20px;
+    padding: 140px 20px 100px;
+
+    position: relative;
+
+    overflow: hidden;
 
     background:
         linear-gradient(
-            rgba(37, 99, 235, 0.75),
-            rgba(30, 64, 175, 0.80)
-        ),
-        url("../img/banner/banner.jpg");
-
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-
-/* CONTEÚDO */
-
-.banner-content {
-
-    max-width: 850px;
+            135deg,
+            rgba(15,23,42,0.96),
+            rgba(37,99,235,0.92)
+        );
 
     color: white;
 }
 
+.curso-hero-overlay {
 
-/* TÍTULO */
+    position: absolute;
 
-.banner-content h1 {
+    inset: 0;
 
-    font-size: 64px;
-
-    line-height: 1.2;
-
-    margin-bottom: 25px;
-
-    font-weight: bold;
+    background: rgba(0,0,0,0.35);
 }
 
+.curso-hero-content {
 
-/* TEXTO */
+    position: relative;
 
-.banner-content p {
+    z-index: 2;
 
-    font-size: 22px;
-
-    line-height: 1.7;
-
-    margin-bottom: 35px;
+    max-width: 850px;
 }
 
-
-/* BOTÃO */
-
-.btn-banner {
+.curso-tag {
 
     display: inline-block;
 
-    background-color: white;
+    padding: 10px 20px;
 
-    color: #2563eb;
+    border-radius: 50px;
+
+    background: rgba(255,255,255,0.12);
+
+    border: 1px solid rgba(255,255,255,0.18);
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    margin-bottom: 25px;
+
+    backdrop-filter: blur(10px);
+}
+
+.curso-hero h1 {
+
+    font-size: 4rem;
+
+    line-height: 1.1;
+
+    color: white;
+
+    margin-bottom: 25px;
+}
+
+.curso-hero p {
+
+    font-size: 20px;
+
+    line-height: 1.8;
+
+    color: rgba(255,255,255,0.9);
+
+    margin-bottom: 40px;
+}
+
+
+/* =========================================
+   BOTÕES
+========================================= */
+
+.hero-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+}
+
+.btn-curso {
 
     padding: 16px 34px;
 
-    border-radius: 10px;
+    border-radius: 14px;
 
-    font-size: 17px;
+    background: white;
 
-    font-weight: bold;
+    color: #2563eb;
 
-    transition: 0.3s;
+    font-weight: 700;
+
+    transition: 0.3s ease;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.15);
 }
 
-.btn-banner:hover {
+.btn-curso:hover {
 
-    transform: translateY(-3px);
+    transform: translateY(-4px);
 
-    background-color: #eff6ff;
+    background: #eff6ff;
+}
+
+.btn-secondary {
+
+    padding: 16px 34px;
+
+    border-radius: 14px;
+
+    border: 2px solid rgba(255,255,255,0.4);
+
+    color: white;
+
+    font-weight: 700;
+
+    transition: 0.3s ease;
+}
+
+.btn-secondary:hover {
+
+    background: rgba(255,255,255,0.12);
+
+    transform: translateY(-4px);
 }
 
 
-/* =========================
-   CURSOS
-========================= */
+/* =========================================
+   SOBRE CURSO
+========================================= */
 
-.cursos {
+.curso-info {
 
-    padding: 100px 60px;
+    padding: 110px 20px;
 
-    background-color: #f8fafc;
-
-    text-align: center;
+    background: white;
 }
 
+.curso-container {
 
-/* TÍTULO */
+    max-width: 1200px;
 
-.cursos h2 {
-
-    font-size: 42px;
-
-    color: #0f172a;
-
-    margin-bottom: 60px;
-}
-
-
-/* GRID */
-
-.cards {
+    margin: 0 auto;
 
     display: grid;
 
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: 1fr 350px;
 
-    gap: 30px;
+    gap: 60px;
+
+    align-items: center;
+}
+
+.section-tag {
+
+    display: inline-block;
+
+    margin-bottom: 15px;
+
+    color: #2563eb;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+.curso-text h2 {
+
+    font-size: 3rem;
+
+    margin-bottom: 25px;
+}
+
+.curso-text p {
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    color: #475569;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================
+   BOX LATERAL
+========================================= */
+
+.curso-box {
+
+    padding: 40px;
+
+    border-radius: 24px;
+
+    background: #f8fafc;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,0.06);
+}
+
+.info-item {
+
+    margin-bottom: 30px;
+}
+
+.info-item:last-child {
+
+    margin-bottom: 0;
+}
+
+.info-item h3 {
+
+    color: #2563eb;
+
+    margin-bottom: 10px;
+}
+
+.info-item p {
+
+    color: #475569;
+}
+
+
+/* =========================================
+   BENEFÍCIOS
+========================================= */
+
+.curso-beneficios {
+
+    padding: 110px 20px;
+
+    background: #f8fafc;
+}
+
+.section-header {
+
+    text-align: center;
+
+    margin-bottom: 70px;
+}
+
+.section-header h2 {
+
+    font-size: 3rem;
+}
+
+.beneficios-grid {
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+
+    gap: 35px;
+}
+
+.beneficio-card {
+
+    background: white;
+
+    padding: 40px 35px;
+
+    border-radius: 24px;
+
+    text-align: center;
+
+    transition: 0.35s ease;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.06);
+}
+
+.beneficio-card:hover {
+
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.1);
+}
+
+.beneficio-icon {
+
+    font-size: 50px;
+
+    margin-bottom: 20px;
+}
+
+.beneficio-card h3 {
+
+    font-size: 1.5rem;
+
+    margin-bottom: 15px;
+}
+
+.beneficio-card p {
+
+    color: #64748b;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   CTA
+========================================= */
+
+.curso-cta {
+
+    padding: 120px 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #1d4ed8
+        );
+
+    text-align: center;
+
+    color: white;
+}
+
+.cta-content {
+
+    max-width: 700px;
+
+    margin: 0 auto;
+}
+
+.cta-content h2 {
+
+    font-size: 3rem;
+
+    color: white;
+
+    margin-bottom: 25px;
+}
+
+.cta-content p {
+
+    font-size: 18px;
+
+    color: rgba(255,255,255,0.92);
+
+    margin-bottom: 40px;
+}
+
+
+/* =========================================
+   RESPONSIVO
+========================================= */
+
+@media (max-width: 992px) {
+
+    .curso-container {
+
+        grid-template-columns: 1fr;
+    }
+
+    .curso-hero h1 {
+
+        font-size: 3rem;
+    }
+
+    .curso-text h2,
+    .section-header h2,
+    .cta-content h2 {
+
+        font-size: 2.4rem;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .curso-hero {
+
+        padding-top: 130px;
+    }
+
+    .curso-hero h1 {
+
+        font-size: 2.3rem;
+    }
+
+    .curso-hero p {
+
+        font-size: 17px;
+    }
+
+    .hero-buttons {
+
+        flex-direction: column;
+    }
+
+    .btn-curso,
+    .btn-secondary {
+
+        width: 100%;
+    }
+
+    .curso-text h2,
+    .section-header h2,
+    .cta-content h2 {
+
+        font-size: 2rem;
+    }
+}
+
+/* =========================================
+   MATRÍCULA
+========================================= */
+
+.matricula-section {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 140px 20px 80px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eff6ff,
+            #dbeafe
+        );
 }
 
 
 /* CARD */
 
-.card {
+.matricula-container {
 
-    background-color: white;
+    width: 100%;
 
-    padding: 35px 25px;
+    max-width: 700px;
 
-    border-radius: 16px;
+    background: white;
 
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    padding: 60px;
 
-    transition: 0.3s;
+    border-radius: 30px;
 
-    opacity: 0;
-
-    transform: translateY(40px);
-}
-
-
-/* ANIMAÇÃO */
-
-.card.show {
-
-    opacity: 1;
-
-    transform: translateY(0);
-}
-
-
-/* HOVER */
-
-.card:hover {
-
-    transform: translateY(-8px);
-
-    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.08);
 }
 
 
 /* TÍTULO */
 
-.card h3 {
+.matricula-container h1 {
 
-    font-size: 26px;
-
-    margin-bottom: 18px;
-
-    color: #2563eb;
-}
-
-
-/* TEXTO */
-
-.card p {
-
-    font-size: 16px;
-
-    line-height: 1.7;
-
-    color: #475569;
-
-    margin-bottom: 25px;
-}
-
-
-/* LINK */
-
-.card a {
-
-    display: inline-block;
-
-    color: white;
-
-    background-color: #2563eb;
-
-    padding: 12px 22px;
-
-    border-radius: 8px;
-
-    font-weight: bold;
-
-    transition: 0.3s;
-}
-
-.card a:hover {
-
-    background-color: #1d4ed8;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-.footer {
-
-    background-color: #0f172a;
-
-    color: white;
+    font-size: 3rem;
 
     text-align: center;
 
-    padding: 25px;
+    margin-bottom: 15px;
+}
+
+.matricula-container p {
+
+    text-align: center;
+
+    color: #64748b;
+
+    margin-bottom: 45px;
+
+    font-size: 17px;
 }
 
 
-/* =========================
-   BOTÃO TOPO
-========================= */
+/* FORM */
 
-.back-to-top {
+.matricula-container form {
 
-    position: fixed;
+    display: flex;
 
-    bottom: 30px;
-    right: 30px;
+    flex-direction: column;
 
-    width: 50px;
-    height: 50px;
+    gap: 25px;
+}
 
-    border: none;
 
-    border-radius: 50%;
+/* GRUPO */
 
-    background-color: #2563eb;
+.form-group {
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+/* LABEL */
+
+.form-group label {
+
+    font-weight: 600;
+
+    margin-bottom: 10px;
+
+    color: #1e293b;
+}
+
+
+/* INPUTS */
+
+.form-group input,
+.form-group select {
+
+    width: 100%;
+
+    padding: 16px 18px;
+
+    border-radius: 14px;
+
+    border: 2px solid #e2e8f0;
+
+    font-size: 16px;
+
+    transition: 0.3s ease;
+
+    background: #f8fafc;
+}
+
+
+/* FOCUS */
+
+.form-group input:focus,
+.form-group select:focus {
+
+    border-color: #2563eb;
+
+    background: white;
+
+    box-shadow:
+        0 0 0 5px rgba(37,99,235,0.12);
+}
+
+
+/* BOTÃO */
+
+.btn-form {
+
+    width: 100%;
+
+    padding: 18px;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #1d4ed8
+        );
 
     color: white;
 
-    font-size: 24px;
+    font-size: 17px;
 
-    cursor: pointer;
+    font-weight: 700;
 
-    display: none;
+    margin-top: 10px;
 
-    justify-content: center;
-    align-items: center;
+    transition: 0.3s ease;
 
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-
-    transition: 0.3s;
-
-    z-index: 999;
-}
-
-.back-to-top:hover {
-
-    background-color: #1d4ed8;
-
-    transform: translateY(-3px);
+    box-shadow:
+        0 10px 25px rgba(37,99,235,0.25);
 }
 
 
-/* =========================
-   RESPONSIVO
-========================= */
+/* HOVER */
+
+.btn-form:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 18px 40px rgba(37,99,235,0.35);
+}
+
+
+/* RESPONSIVO */
 
 @media (max-width: 768px) {
 
-    .banner-content h1 {
+    .matricula-container {
 
-        font-size: 42px;
+        padding: 40px 25px;
     }
 
-    .banner-content p {
+    .matricula-container h1 {
 
-        font-size: 18px;
+        font-size: 2.2rem;
     }
-
-    .cursos {
-
-        padding: 80px 20px;
-    }
-
-    .cursos h2 {
-
-        font-size: 34px;
-    }
-
 }

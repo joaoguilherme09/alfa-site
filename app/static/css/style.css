@@ -1,60 +1,121 @@
-/* =========================
+/* =========================================
    IMPORTS
-========================= */
+========================================= */
 
 @import url("navbar.css");
 @import url("home.css");
 @import url("admin.css");
 
 
-/* =========================
+/* =========================================
+   GOOGLE FONT
+========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+
+/* =========================================
    RESET
-========================= */
+========================================= */
 
 * {
+
     margin: 0;
     padding: 0;
+
     box-sizing: border-box;
 }
 
 
-/* =========================
+/* =========================================
+   ROOT
+========================================= */
+
+:root {
+
+    --primary-color: #2563eb;
+    --primary-dark: #1e40af;
+
+    --secondary-color: #3b82f6;
+
+    --white: #ffffff;
+
+    --gray-100: #f8fafc;
+    --gray-200: #e2e8f0;
+    --gray-300: #cbd5e1;
+    --gray-500: #64748b;
+    --gray-700: #334155;
+
+    --dark: #0f172a;
+
+    --shadow-sm:
+        0 2px 10px rgba(0,0,0,0.05);
+
+    --shadow-md:
+        0 10px 30px rgba(0,0,0,0.08);
+
+    --shadow-lg:
+        0 15px 40px rgba(0,0,0,0.12);
+
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 22px;
+
+    --transition: 0.3s ease;
+}
+
+
+/* =========================================
+   HTML
+========================================= */
+
+html {
+
+    scroll-behavior: smooth;
+}
+
+
+/* =========================================
    BODY
-========================= */
+========================================= */
 
 body {
 
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
 
-    background-color: #f8fafc;
+    background-color: var(--gray-100);
 
-    color: #1e293b;
+    color: var(--dark);
 
     overflow-x: hidden;
 }
 
 
-/* =========================
+/* =========================================
    LINKS
-========================= */
+========================================= */
 
 a {
+
     text-decoration: none;
+
+    color: inherit;
 }
 
 
-/* =========================
+/* =========================================
    LISTAS
-========================= */
+========================================= */
 
 ul {
+
     list-style: none;
 }
 
 
-/* =========================
+/* =========================================
    IMAGENS
-========================= */
+========================================= */
 
 img {
 
@@ -64,81 +125,59 @@ img {
 }
 
 
-/* =========================
-   BOTÕES GERAIS
-========================= */
+/* =========================================
+   BOTÕES
+========================================= */
 
 button {
 
     border: none;
 
+    outline: none;
+
     cursor: pointer;
 
     font-family: inherit;
+
+    transition: var(--transition);
 }
 
 
-/* =========================
-   FORMULÁRIOS
-========================= */
+/* =========================================
+   INPUTS
+========================================= */
 
 input,
-select,
 textarea,
-button {
+select {
 
     outline: none;
+
+    border: none;
 
     font-family: inherit;
 }
 
 
-/* =========================
-   SCROLLBAR
-========================= */
-
-::-webkit-scrollbar {
-
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-
-    background: #e2e8f0;
-}
-
-::-webkit-scrollbar-thumb {
-
-    background: #2563eb;
-
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-
-    background: #1d4ed8;
-}
-
-
-/* =========================
-   CONTAINER PADRÃO
-========================= */
+/* =========================================
+   CONTAINER
+========================================= */
 
 .container {
 
     width: 100%;
 
-    max-width: 1200px;
+    max-width: 1300px;
 
     margin: 0 auto;
 
-    padding: 0 20px;
+    padding: 0 30px;
 }
 
 
-/* =========================
+/* =========================================
    TÍTULOS
-========================= */
+========================================= */
 
 h1,
 h2,
@@ -147,54 +186,174 @@ h4,
 h5,
 h6 {
 
-    font-weight: bold;
+    color: var(--dark);
 
-    color: #0f172a;
+    font-weight: 700;
+
+    line-height: 1.2;
 }
 
 
-/* =========================
+/* =========================================
    PARÁGRAFOS
-========================= */
+========================================= */
 
 p {
 
-    line-height: 1.6;
+    color: var(--gray-500);
+
+    line-height: 1.8;
 }
 
 
-/* =========================
-   TRANSIÇÕES
-========================= */
+/* =========================================
+   SEÇÕES
+========================================= */
 
-a,
-button,
-.card,
-.dashboard-card {
+section {
 
-    transition: 0.3s;
+    width: 100%;
 }
 
 
-/* =========================
-   CLASSE OCULTA
-========================= */
+/* =========================================
+   BOTÕES GLOBAIS
+========================================= */
 
-.hidden {
+.btn {
 
-    display: none;
+    display: inline-flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 14px 30px;
+
+    border-radius: var(--radius-md);
+
+    background: var(--primary-color);
+
+    color: var(--white);
+
+    font-weight: 600;
+
+    transition: var(--transition);
+
+    box-shadow: var(--shadow-sm);
+}
+
+.btn:hover {
+
+    transform: translateY(-3px);
+
+    background: var(--primary-dark);
+
+    box-shadow: var(--shadow-md);
 }
 
 
-/* =========================
+/* =========================================
+   CARDS
+========================================= */
+
+.card {
+
+    background: var(--white);
+
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-sm);
+
+    transition: var(--transition);
+}
+
+.card:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow: var(--shadow-lg);
+}
+
+
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+::-webkit-scrollbar {
+
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+
+    background: var(--gray-200);
+}
+
+::-webkit-scrollbar-thumb {
+
+    background: var(--primary-color);
+
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+
+    background: var(--primary-dark);
+}
+
+
+/* =========================================
+   ANIMAÇÕES
+========================================= */
+
+.fade-up {
+
+    opacity: 0;
+
+    transform: translateY(40px);
+
+    transition: 0.7s ease;
+}
+
+.fade-up.show {
+
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================
    RESPONSIVO
-========================= */
+========================================= */
+
+@media (max-width: 992px) {
+
+    .container {
+
+        padding: 0 20px;
+    }
+
+}
+
 
 @media (max-width: 768px) {
 
-    body {
+    h1 {
 
-        overflow-x: hidden;
+        font-size: 2.4rem;
+    }
+
+    h2 {
+
+        font-size: 2rem;
+    }
+
+    p {
+
+        font-size: 15px;
     }
 
 }

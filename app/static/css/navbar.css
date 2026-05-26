@@ -1,19 +1,19 @@
-/* =========================
-   NAVBAR
-========================= */
+/* =========================================
+   NAVBAR PREMIUM
+========================================= */
 
 .navbar {
 
     width: 100%;
+
+    height: 90px;
 
     display: flex;
 
     justify-content: space-between;
     align-items: center;
 
-    padding: 18px 60px;
-
-    background-color: #ffffff;
+    padding: 0 70px;
 
     position: fixed;
 
@@ -22,29 +22,43 @@
 
     z-index: 1000;
 
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    background: rgba(255, 255, 255, 0.92);
 
-    transition: 0.3s;
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+
+    transition: 0.4s ease;
 }
 
 
-/* NAVBAR SCROLL */
+/* =========================================
+   NAVBAR SCROLL
+========================================= */
 
 .navbar-scroll {
 
-    background-color: #2563eb;
+    height: 78px;
 
-    padding: 14px 60px;
+    background: rgba(37, 99, 235, 0.96);
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
-.navbar-scroll a {
+.navbar-scroll .menu a {
+
     color: white;
 }
 
+.navbar-scroll .menu a:hover {
 
-/* =========================
+    color: #dbeafe;
+}
+
+
+/* =========================================
    LOGO
-========================= */
+========================================= */
 
 .logo {
 
@@ -53,32 +67,24 @@
     align-items: center;
 }
 
-
 .logo-img {
 
-    width: 140px;
-
-    height: auto;
+    width: 170px;
 
     object-fit: contain;
 
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
-
-
-/* HOVER */
 
 .logo-img:hover {
 
-    transform: scale(1.03);
+    transform: scale(1.04);
 }
 
 
-
-
-/* =========================
+/* =========================================
    MENU
-========================= */
+========================================= */
 
 .menu {
 
@@ -86,24 +92,62 @@
 
     align-items: center;
 
-    gap: 25px;
+    gap: 35px;
 
     list-style: none;
 }
 
 .menu li {
+
     position: relative;
 }
 
+
+/* =========================================
+   LINKS
+========================================= */
+
 .menu a {
 
-    text-decoration: none;
+    position: relative;
 
-    color: #1e293b;
+    color: #0f172a;
+
+    font-size: 15px;
 
     font-weight: 600;
 
-    transition: 0.3s;
+    text-decoration: none;
+
+    transition: 0.3s ease;
+}
+
+
+/* LINHA HOVER */
+
+.menu a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -8px;
+
+    width: 0%;
+
+    height: 2px;
+
+    background: #2563eb;
+
+    border-radius: 20px;
+
+    transition: 0.3s ease;
+}
+
+.menu a:hover::after {
+
+    width: 100%;
 }
 
 .menu a:hover {
@@ -112,97 +156,166 @@
 }
 
 
-/* =========================
+/* =========================================
    DROPDOWN
-========================= */
+========================================= */
 
 .dropdown-menu {
 
-    display: none;
-
     position: absolute;
 
-    top: 40px;
+    top: 55px;
     left: 0;
 
-    background-color: white;
+    min-width: 240px;
 
-    min-width: 220px;
+    background: rgba(255,255,255,0.98);
 
-    border-radius: 10px;
+    backdrop-filter: blur(12px);
 
-    overflow: hidden;
+    border-radius: 18px;
 
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    padding: 12px 0;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(15px);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.08);
+
+    transition: 0.35s ease;
 }
 
-.dropdown-menu li {
-    width: 100%;
+
+/* ABRIR DROPDOWN */
+
+.dropdown:hover .dropdown-menu {
+
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateY(0);
 }
+
+
+/* LINKS DROPDOWN */
 
 .dropdown-menu a {
 
     display: block;
 
-    padding: 14px 18px;
+    padding: 14px 22px;
 
-    color: #1e293b;
+    font-size: 14px;
+
+    color: #334155;
+
+    transition: 0.3s ease;
+}
+
+.dropdown-menu a::after {
+
+    display: none;
 }
 
 .dropdown-menu a:hover {
 
-    background-color: #eff6ff;
+    background: #eff6ff;
 
     color: #2563eb;
+
+    padding-left: 28px;
 }
 
 
-/* =========================
+/* =========================================
    BOTÃO MATRÍCULA
-========================= */
+========================================= */
 
 .btn-matricula {
 
-    background-color: #2563eb;
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #3b82f6
+    );
 
     color: white !important;
 
-    padding: 12px 22px;
+    padding: 14px 28px;
 
-    border-radius: 8px;
+    border-radius: 14px;
 
-    transition: 0.3s;
+    font-weight: 600;
+
+    box-shadow:
+        0 10px 25px rgba(37,99,235,0.25);
+
+    transition: 0.3s ease;
+}
+
+.btn-matricula::after {
+
+    display: none;
 }
 
 .btn-matricula:hover {
 
-    background-color: #1d4ed8;
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 35px rgba(37,99,235,0.35);
+
+    background: linear-gradient(
+        135deg,
+        #1d4ed8,
+        #2563eb
+    );
 }
 
 
-/* =========================
-   MENU MOBILE
-========================= */
+/* =========================================
+   MOBILE BUTTON
+========================================= */
 
 .mobile-menu-button {
 
     display: none;
 
-    font-size: 28px;
+    font-size: 32px;
+
+    color: #0f172a;
 
     cursor: pointer;
 }
 
 
-/* =========================
+/* =========================================
    RESPONSIVO
-========================= */
+========================================= */
+
+@media (max-width: 992px) {
+
+    .navbar {
+
+        padding: 0 25px;
+    }
+
+    .menu {
+
+        gap: 25px;
+    }
+
+}
+
 
 @media (max-width: 768px) {
 
     .navbar {
 
-        padding: 18px 20px;
+        height: 80px;
     }
 
     .mobile-menu-button {
@@ -212,29 +325,41 @@
 
     .menu {
 
-        display: none;
-
         position: absolute;
 
-        top: 80px;
+        top: 90px;
         right: 20px;
+
+        width: 280px;
 
         flex-direction: column;
 
-        background-color: white;
+        align-items: flex-start;
 
-        width: 250px;
+        gap: 10px;
 
-        padding: 20px;
+        padding: 25px;
 
-        border-radius: 12px;
+        background: rgba(255,255,255,0.98);
 
-        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        backdrop-filter: blur(10px);
+
+        border-radius: 22px;
+
+        box-shadow:
+            0 20px 45px rgba(0,0,0,0.12);
+
+        display: none;
     }
 
     .menu.active {
 
         display: flex;
+    }
+
+    .menu a {
+
+        width: 100%;
     }
 
     .dropdown-menu {
@@ -243,9 +368,23 @@
 
         top: 10px;
 
+        width: 100%;
+
+        opacity: 1;
+        visibility: visible;
+
+        transform: none;
+
+        display: none;
+
         box-shadow: none;
 
         border: 1px solid #e2e8f0;
+    }
+
+    .dropdown.active .dropdown-menu {
+
+        display: block;
     }
 
 }
