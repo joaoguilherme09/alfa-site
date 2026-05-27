@@ -79,6 +79,22 @@
 .hero-text {
 
     flex: 1;
+
+    max-width: 620px;
+
+    padding: 40px;
+
+    border: 2px solid rgba(255,255,255,0.25);
+
+    border-radius: 28px;
+
+    background: rgba(15,23,42,0.35);
+
+    backdrop-filter: blur(8px);
+
+    margin-left: -200px;
+
+    overflow: hidden;
 }
 
 .hero-text span {
@@ -104,22 +120,26 @@
 
 .hero-text h1 {
 
-    font-size: 4rem;
+    font-size: 3.0rem;
 
-    line-height: 1.1;
+    line-height: 1.05;
 
     color: white;
 
     margin-bottom: 25px;
+
+    font-weight: 800;
 }
 
 .hero-text p {
 
-    max-width: 600px;
+    max-width: 500px;
 
-    color: rgba(255,255,255,0.9);
+    color: rgba(255,255,255,0.92);
 
     font-size: 18px;
+
+    line-height: 1.7;
 
     margin-bottom: 35px;
 }
@@ -515,6 +535,8 @@
         flex-direction: column;
 
         text-align: center;
+
+        justify-content: flex-start;
     }
 
     .hero-text p {
@@ -535,6 +557,13 @@
     .hero {
 
         padding-top: 120px;
+    }
+
+    .hero-text {
+
+        margin-left: 0;
+
+        padding: 30px;
     }
 
     .hero-text h1 {
@@ -1198,4 +1227,351 @@
 
         font-size: 2.2rem;
     }
+}
+
+
+
+/* =========================================
+   WHATSAPP FLOAT
+========================================= */
+
+.whatsapp-float {
+    
+    margin-right: 5px;
+
+    gap: 16px;
+
+    position: fixed;
+
+    padding: 0 22px;
+    height: 70px;
+
+    bottom: 30px;
+    right: 30px;
+
+    background: #25d366;
+
+    border-radius: 1%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    box-shadow:
+        0 10px 30px rgba(37,211,102,0.4);
+
+    z-index: 9999;
+
+    transition: 0.3s ease;
+
+    animation: pulseWhatsapp 2s infinite;
+}
+
+
+/* IMAGEM */
+
+.whatsapp-float img {
+
+    width: 50px;
+    height: 50px;
+}
+
+
+/* HOVER */
+
+.whatsapp-float:hover {
+
+    transform: scale(1.12);
+
+    box-shadow:
+        0 15px 40px rgba(37,211,102,0.55);
+}
+
+
+/* ANIMAÇÃO */
+
+@keyframes pulseWhatsapp {
+
+    0% {
+
+        transform: scale(1);
+    }
+
+    50% {
+
+        transform: scale(1.06);
+    }
+
+    100% {
+
+        transform: scale(1);
+    }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .whatsapp-float {
+
+        width: 60px;
+        height: 60px;
+
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .whatsapp-float img {
+
+        width: 32px;
+        height: 32px;
+    }
+}
+
+/* TEXTO */
+
+.whatsapp-float span {
+
+    color: white;
+
+    font-weight: 700;
+
+    font-size: 15px;
+
+    white-space: nowrap;
+}
+
+
+
+/* =========================================
+   HERO SLIDER
+========================================= */
+
+.slider-hero {
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* SLIDES */
+
+.hero-slider {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+}
+
+.slide {
+
+    position: absolute;
+
+    inset: 0;
+
+    opacity: 0;
+
+    transition: opacity 1s ease-in-out;
+
+    background-size: cover;
+
+    background-position: center;
+}
+
+
+/* IMAGENS */
+
+.slide:nth-child(1) {
+
+    background-image:
+        linear-gradient(
+            rgba(15,23,42,0.65),
+            rgba(15,23,42,0.65)
+        ),
+        url("../img/faixa.png");
+}
+
+.slide:nth-child(2) {
+
+    background-image:
+        linear-gradient(
+            rgba(15,23,42,0.65),
+            rgba(15,23,42,0.65)
+        ),
+        url("../img/faixa.png");
+}
+
+.slide:nth-child(3) {
+
+    background-image:
+        linear-gradient(
+            rgba(15,23,42,0.65),
+            rgba(15,23,42,0.65)
+        ),
+        url("../img/faixa.png");
+}
+
+
+/* ATIVO */
+
+.slide.active {
+
+    opacity: 1;
+}
+
+
+/* TEXTO ACIMA */
+
+.hero-container {
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/*----------LOCALIZAÇÃO------------------*/
+
+.localizacao {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 70px;
+
+    padding: 110px 8%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0f172a,
+            #1e293b
+        );
+
+    flex-wrap: wrap;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* EFEITO FUNDO */
+
+.localizacao::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background: rgba(37,99,235,0.18);
+
+    top: -180px;
+    right: -120px;
+
+    filter: blur(40px);
+}
+
+
+/* TEXTO */
+
+.localizacao-info {
+
+    max-width: 420px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.localizacao-info h2 {
+
+    font-size: 42px;
+
+    color: white;
+
+    margin-bottom: 25px;
+}
+
+
+.localizacao-info p {
+
+    font-size: 18px;
+
+    line-height: 1.9;
+
+    color: rgba(255,255,255,0.82);
+
+    margin-bottom: 30px;
+}
+
+
+/* BOTÃO WHATSAPP */
+
+.contato-whatsapp {
+
+    display: inline-block;
+
+    background: #25d366;
+
+    color: white;
+
+    padding: 16px 30px;
+
+    border-radius: 16px;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    transition: 0.3s ease;
+
+    box-shadow:
+        0 12px 30px rgba(37,211,102,0.30);
+}
+
+
+.contato-whatsapp:hover {
+
+    transform: translateY(-5px);
+
+    background: #1ebe5d;
+
+    box-shadow:
+        0 18px 40px rgba(37,211,102,0.35);
+}
+
+
+/* MAPA */
+
+.mapa {
+
+    flex: 1;
+
+    min-width: 340px;
+
+    border-radius: 28px;
+
+    overflow: hidden;
+
+    position: relative;
+
+    z-index: 2;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.35);
 }

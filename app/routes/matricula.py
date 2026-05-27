@@ -89,8 +89,152 @@ def matricula():
             connection.close()
 
             return """
-            <h1>Matrícula realizada com sucesso!</h1>
-            <a href="/">Voltar</a>
+            <!DOCTYPE html>
+            <html lang="pt-br">
+
+            <head>
+
+                <meta charset="UTF-8">
+
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1.0"
+                >
+
+                <title>
+                    Matrícula Realizada
+                </title>
+
+                <style>
+
+                    * {
+
+                        margin: 0;
+                        padding: 0;
+                        box-sizing: border-box;
+
+                        font-family: Arial, sans-serif;
+                    }
+
+                    body {
+
+                        min-height: 100vh;
+
+                        display: flex;
+
+                        justify-content: center;
+                        align-items: center;
+
+                        background:
+                            linear-gradient(
+                                135deg,
+                                #2563eb,
+                                #1d4ed8
+                            );
+                    }
+
+                    .sucesso-box {
+
+                        background: white;
+
+                        padding: 60px;
+
+                        border-radius: 28px;
+
+                        text-align: center;
+
+                        max-width: 550px;
+
+                        box-shadow:
+                            0 20px 50px rgba(0,0,0,0.18);
+                    }
+
+                    .icone {
+
+                        font-size: 80px;
+
+                        margin-bottom: 25px;
+                    }
+
+                    h1 {
+
+                        color: #0f172a;
+
+                        margin-bottom: 20px;
+
+                        font-size: 38px;
+                    }
+
+                    p {
+
+                        color: #475569;
+
+                        font-size: 18px;
+
+                        line-height: 1.7;
+
+                        margin-bottom: 35px;
+                    }
+
+                    .btn {
+
+                        display: inline-block;
+
+                        padding: 16px 32px;
+
+                        border-radius: 14px;
+
+                        background: #2563eb;
+
+                        color: white;
+
+                        text-decoration: none;
+
+                        font-weight: bold;
+
+                        transition: 0.3s ease;
+                    }
+
+                    .btn:hover {
+
+                        transform: translateY(-4px);
+
+                        background: #1d4ed8;
+                    }
+
+                </style>
+
+            </head>
+
+            <body>
+
+                <div class="sucesso-box">
+
+                    <div class="icone">
+                        🎉
+                    </div>
+
+                    <h1>
+                        Matrícula realizada!
+                    </h1>
+
+                    <p>
+                        Sua matrícula foi enviada com sucesso.<br>
+                        Em breve nossa equipe entrará em contato pelo WhatsApp.
+                    </p>
+
+                    <a
+                        href="/"
+                        class="btn"
+                    >
+                        Voltar ao site
+                    </a>
+
+                </div>
+
+            </body>
+
+            </html>
             """
 
         except Exception as e:
