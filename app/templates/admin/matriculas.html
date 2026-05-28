@@ -69,6 +69,12 @@
                     </a>
                 </li>
 
+                <li>
+                    <a href="/admin/logout">
+                        Sair
+                    </a>
+                </li>
+
             </ul>
 
         </nav>
@@ -104,12 +110,13 @@
                 <thead>
 
                     <tr>
-
+                        
                         <th>ID</th>
                         <th>Aluno</th>
                         <th>Curso</th>
                         <th>Status</th>
                         <th>Data Matrícula</th>
+                        <th>Ações</th>
 
                     </tr>
 
@@ -126,21 +133,69 @@
                         </td>
 
                         <td>
-                            {{ matricula.aluno }}
+                            <a
+                                href="#"
+                                class="aluno-link"
+                                onclick="abrirModal({{ matricula.aluno_id }})"
+                            >
+                                {{ matricula.aluno }}
+                            </a>
                         </td>
 
                         <td>
                             {{ matricula.curso }}
                         </td>
 
-                        <td>
-                            {{ matricula.status }}
+                       <td>
+
+                            {% if matricula.status == 'pendente' %}
+
+                                <span class="status-pendente">
+                                    Pendente
+                                </span>
+
+                            {% elif matricula.status == 'ativa' %}
+
+                                <span class="status-ativa">
+                                    Ativa
+                                </span>
+
+                            {% elif matricula.status == 'cancelada' %}
+
+                                <span class="status-cancelada">
+                                    Cancelada
+                                </span>
+
+                            {% endif %}
+
                         </td>
 
                         <td>
                             {{ matricula.data_matricula }}
                         </td>
 
+                        <td>
+
+                            <div class="acoes-matricula">
+
+                                <a
+                                    href="/admin/matriculas/ativar/{{ matricula.id }}"
+                                    class="btn-ativar"
+                                >
+                                    Ativar
+                                </a>
+
+                                <a
+                                    href="/admin/matriculas/cancelar/{{ matricula.id }}"
+                                    class="btn-cancelar"
+                                >
+                                    Cancelar
+                                </a>
+
+                            </div>
+
+                        </td>
+                        
                     </tr>
 
                     {% endfor %}
@@ -152,6 +207,35 @@
         </div>
 
     </main>
+
+    <!-- MODAL -->
+    <div
+        id="modalAluno"
+        class="modal"
+    >
+
+        <div class="modal-content">
+
+            <span
+                class="fechar"
+                onclick="fecharModal()"
+            >
+                &times;
+            </span>
+
+            <h2>
+                Informações do Aluno
+            </h2>
+
+            <div id="conteudoAluno"></div>
+
+        </div>
+
+    </div>
+
+    <script
+    src="{{ url_for('static', filename='js/admin.js') }}"
+    ></script>
 
 </body>
 

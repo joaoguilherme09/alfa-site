@@ -8,6 +8,8 @@ def create_app():
         static_folder='static'
     )
 
+    app.secret_key = 'alfa_cursos_secret'
+
     # Importação das rotas
     from app.routes.home import home_bp
     from app.routes.cursos import cursos_bp

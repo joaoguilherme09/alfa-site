@@ -13,77 +13,7 @@
 
 <body>
 
-    <!-- ========================= -->
-    <!-- NAVBAR -->
-    <!-- ========================= -->
-
-    <header class="navbar">
-
-        <div class="logo">
-            <a href="/">
-                <img
-                    src="{{ url_for('static', filename='img/logo/logo.png') }}"
-                    alt="Logo Alfa Cursos"
-                    class="logo-img"
-                >
-            </a>
-        </div>
-
-        <nav>
-
-            <ul class="menu">
-
-                <li class="dropdown">
-
-                    <a href="#">
-                        Cursos ▼
-                    </a>
-
-                    <ul class="dropdown-menu">
-
-                        <li>
-                            <a href="/cursos/ingles">
-                                Inglês
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="/cursos/informatica">
-                                Informática
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="/cursos/enem">
-                                Preparatório ENEM
-                            </a>
-                        </li>
-
-                    </ul>
-
-                </li>
-
-                <li>
-                    <a
-                        href="https://wa.me/5512997781432"
-                        target="_blank"
-                    >
-                        Fale Conosco
-                    </a>
-                </li>
-
-                <li>
-                    <a class="btn-matricula" href="/matricula">
-                        Me Matricular
-                    </a>
-                </li>
-
-            </ul>
-
-        </nav>
-
-    </header>
-
+   
     <!-- ========================= -->
     <!-- FORMULÁRIO -->
     <!-- ========================= -->
@@ -144,8 +74,10 @@
                     <input
                         type="text"
                         name="telefone"
-                        placeholder="(12) 99778-1432"
+                        placeholder="(12) 98765-4321"
+                        maxlength="15"
                         required
+                        oninput="formatarTelefone(this)"
                     >
 
                 </div>
@@ -220,6 +152,31 @@
         </p>
 
     </footer>
+
+    <script>
+
+    function formatarTelefone(input) {
+
+        let telefone = input.value;
+
+        telefone = telefone.replace(/\D/g, '');
+
+        telefone = telefone.substring(0, 11);
+
+        telefone = telefone.replace(
+            /^(\d{2})(\d)/g,
+            '($1) $2'
+        );
+
+        telefone = telefone.replace(
+            /(\d{5})(\d)/,
+            '$1-$2'
+        );
+
+        input.value = telefone;
+    }
+
+</script>
 
 </body>
 
