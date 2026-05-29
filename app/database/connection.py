@@ -1,10 +1,5 @@
 import mysql.connector
 from mysql.connector import Error
-from dotenv import load_dotenv
-import os
-
-load_dotenv()
-
 
 def create_connection():
 
@@ -12,15 +7,16 @@ def create_connection():
 
         connection = mysql.connector.connect(
 
-            host="127.0.0.1",
+            host="zephyr.proxy.rlwy.net",
 
             user="root",
 
-            password="alfa123456",
+            password="mesNlDsQeXxAYRfWdTOJOMvBvHRWixsE",
 
-            database="alfa_site",
+            database="railway",
 
-            port=3307
+            port=19496
+
         )
 
         if connection.is_connected():
