@@ -2,18 +2,28 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Matrícula | Alfa Cursos</title>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Matrícula | Alfa Cursos
+    </title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
 </head>
 
 <body>
 
-   
     <!-- ========================= -->
     <!-- FORMULÁRIO -->
     <!-- ========================= -->
@@ -32,6 +42,14 @@
 
             <form action="/matricula" method="POST">
 
+                <!-- ========================= -->
+                <!-- DADOS DO ALUNO -->
+                <!-- ========================= -->
+
+                <h2>
+                    Dados do Aluno
+                </h2>
+
                 <!-- NOME -->
                 <div class="form-group">
 
@@ -41,9 +59,66 @@
 
                     <input
                         type="text"
-                        name="nome"
-                        placeholder="Digite seu nome"
+                        name="nome_aluno"
+                        placeholder="Digite o nome do aluno"
                         required
+                    >
+
+                </div>
+
+                <!-- DATA NASCIMENTO -->
+                <div class="form-group">
+
+                    <label>
+                        Data de Nascimento
+                    </label>
+
+                    <input
+                        type="date"
+                        name="data_nascimento_aluno"
+                        required
+                    >
+
+                </div>
+
+                <!-- ========================= -->
+                <!-- RESPONSÁVEL -->
+                <!-- ========================= -->
+
+                <h2>
+                    Dados do Responsável
+                </h2>
+
+                <!-- NOME -->
+                <div class="form-group">
+
+                    <label>
+                        Nome Completo
+                    </label>
+
+                    <input
+                        type="text"
+                        name="nome_responsavel"
+                        placeholder="Digite o nome do responsável"
+                        required
+                    >
+
+                </div>
+
+                <!-- CPF -->
+                <div class="form-group">
+
+                    <label>
+                        CPF
+                    </label>
+
+                    <input
+                        type="text"
+                        name="cpf"
+                        placeholder="000.000.000-00"
+                        maxlength="14"
+                        required
+                        oninput="formatarCPF(this)"
                     >
 
                 </div>
@@ -58,7 +133,7 @@
                     <input
                         type="email"
                         name="email"
-                        placeholder="Digite seu e-mail"
+                        placeholder="Digite o e-mail"
                         required
                     >
 
@@ -91,11 +166,84 @@
 
                     <input
                         type="date"
-                        name="data_nascimento"
+                        name="data_nascimento_responsavel"
                         required
                     >
 
                 </div>
+
+                <!-- RUA -->
+                <div class="form-group">
+
+                    <label>
+                        Rua
+                    </label>
+
+                    <input
+                        type="text"
+                        name="rua"
+                        placeholder="Digite a rua"
+                        required
+                    >
+
+                </div>
+
+                <!-- NÚMERO -->
+                <div class="form-group">
+
+                    <label>
+                        Número
+                    </label>
+
+                    <input
+                        type="text"
+                        name="numero"
+                        placeholder="Digite o número"
+                        required
+                    >
+
+                </div>
+
+                <!-- COMPLEMENTO -->
+                <div class="form-group">
+
+                    <label>
+                        Complemento
+                    </label>
+
+                    <input
+                        type="text"
+                        name="complemento"
+                        placeholder="Apartamento, bloco, etc"
+                    >
+
+                </div>
+
+                <!-- CEP -->
+                <div class="form-group">
+
+                    <label>
+                        CEP
+                    </label>
+
+                    <input
+                        type="text"
+                        name="cep"
+                        placeholder="00000-000"
+                        maxlength="9"
+                        required
+                        oninput="formatarCEP(this)"
+                    >
+
+                </div>
+
+                <!-- ========================= -->
+                <!-- MATRÍCULA -->
+                <!-- ========================= -->
+
+                <h2>
+                    Dados da Matrícula
+                </h2>
 
                 <!-- CURSO -->
                 <div class="form-group">
@@ -104,26 +252,65 @@
                         Curso Desejado
                     </label>
 
-                    <select name="curso" required>
+                    <select
+                        name="curso"
+                        required
+                    >
 
                         <option value="">
                             Selecione um curso
                         </option>
 
                         <option value="1">
-                            Inglês Instrumental e Fluência
+                            Informática Básica
                         </option>
 
                         <option value="2">
-                            Informática Essencial
+                            Informática Completa
                         </option>
 
                         <option value="3">
-                            Preparatório ENEM
+                            Informática VIP
                         </option>
 
                         <option value="4">
-                            Excel Avançado para Negócios
+                            Inglês
+                        </option>
+
+                        <option value="5">
+                            Reforço Escolar
+                        </option>
+
+                        <option value="6">
+                            Preparatório Embraer
+                        </option>
+
+                        <option value="7">
+                            Preparatório ENEM
+                        </option>
+
+                        <option value="8">
+                            Alfabetização
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <!-- HORÁRIO -->
+                <div class="form-group">
+
+                    <label>
+                        Horário
+                    </label>
+
+                    <select
+                        name="horario"
+                        required
+                    >
+
+                        <option value="">
+                            Selecione um horário
                         </option>
 
                     </select>
@@ -131,8 +318,13 @@
                 </div>
 
                 <!-- BOTÃO -->
-                <button type="submit" class="btn-form">
+                <button
+                    type="submit"
+                    class="btn-form"
+                >
+
                     Finalizar Matrícula
+
                 </button>
 
             </form>
@@ -155,28 +347,150 @@
 
     <script>
 
-    function formatarTelefone(input) {
+        function formatarTelefone(input) {
 
-        let telefone = input.value;
+            let telefone = input.value;
 
-        telefone = telefone.replace(/\D/g, '');
+            telefone = telefone.replace(/\D/g, '');
 
-        telefone = telefone.substring(0, 11);
+            telefone = telefone.substring(0, 11);
 
-        telefone = telefone.replace(
-            /^(\d{2})(\d)/g,
-            '($1) $2'
-        );
+            telefone = telefone.replace(
+                /^(\d{2})(\d)/g,
+                '($1) $2'
+            );
 
-        telefone = telefone.replace(
-            /(\d{5})(\d)/,
-            '$1-$2'
-        );
+            telefone = telefone.replace(
+                /(\d{5})(\d)/,
+                '$1-$2'
+            );
 
-        input.value = telefone;
-    }
+            input.value = telefone;
+        }
 
-</script>
+        function formatarCPF(input) {
+
+            let cpf = input.value;
+
+            cpf = cpf.replace(/\D/g, '');
+
+            cpf = cpf.substring(0, 11);
+
+            cpf = cpf.replace(
+                /(\d{3})(\d)/,
+                '$1.$2'
+            );
+
+            cpf = cpf.replace(
+                /(\d{3})(\d)/,
+                '$1.$2'
+            );
+
+            cpf = cpf.replace(
+                /(\d{3})(\d{1,2})$/,
+                '$1-$2'
+            );
+
+            input.value = cpf;
+        }
+
+        function formatarCEP(input) {
+
+            let cep = input.value;
+
+            cep = cep.replace(/\D/g, '');
+
+            cep = cep.substring(0, 8);
+
+            cep = cep.replace(
+                /(\d{5})(\d)/,
+                '$1-$2'
+            );
+
+            input.value = cep;
+        }
+
+        
+        
+
+        const horarios = {
+
+            1: [
+                'Segunda a Sábado - 09h às 11h',
+                'Segunda a Sábado - 14h às 16h',
+                'Segunda a Sábado - 16h às 18h',
+                'Terça e Quinta - 18h às 20h'
+            ],
+
+            2: [
+                'Segunda a Sábado - 09h às 11h',
+                'Segunda a Sábado - 14h às 16h',
+                'Segunda a Sábado - 16h às 18h',
+                'Terça e Quinta - 18h às 20h'
+            ],
+
+            3: [
+                'Segunda a Sábado - 09h às 11h',
+                'Segunda a Sábado - 14h às 16h',
+                'Segunda a Sábado - 16h às 18h',
+                'Terça e Quinta - 18h às 20h'
+            ],
+
+            4: [
+                'Terça a Sexta - 09h às 11h',
+                'Segunda a Quinta - 14h às 16h',
+                'Terça e Quinta - 19h às 20h'
+            ],
+
+            5: [
+                'Segunda a Sexta - 09h às 11h',
+                'Sábado - 09h às 12h',
+                'Segunda a Sexta - 14h às 16h',
+                'Terça e Quinta - 18h às 20h'
+            ],
+
+            6: [
+                'Segunda, Quarta e Sexta - 16h às 18h',
+                'Terça, Quinta e Sexta - 14h às 16h',
+                'Terça, Quinta e Sexta - 16h às 18h'
+            ],
+
+            7: [
+                'Segunda, Quarta e Sexta - 18h às 20h'
+            ],
+
+            8: [
+                'Segunda a Sexta - 09h às 11h',
+                'Sábado - 09h às 12h',
+                'Segunda a Sexta - 14h às 16h',
+                'Terça e Quinta - 18h às 20h'
+            ]
+        };
+
+        const cursoSelect = document.querySelector('select[name="curso"]');
+
+        const horarioSelect = document.querySelector('select[name="horario"]');
+
+        cursoSelect.addEventListener('change', function () {
+
+            const cursoId = this.value;
+
+            horarioSelect.innerHTML = `
+                <option value="">
+                    Selecione um horário
+                </option>
+            `;
+
+            if (horarios[cursoId]) {
+
+                horarios[cursoId].forEach(function (horario) {
+
+                    horario = texto
+                });
+            }
+        });
+
+    </script>
 
 </body>
 

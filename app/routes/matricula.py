@@ -1,130 +1,189 @@
 from flask import Blueprint, render_template, request
-
 from app.database.connection import create_connection
-
 matricula_bp = Blueprint('matricula', __name__)
-
-
 @matricula_bp.route('/matricula', methods=['GET', 'POST'])
 def matricula():
-
     if request.method == 'POST':
-
         try:
-
-            nome = request.form.get('nome')
-            email = request.form.get('email')
-            telefone = request.form.get('telefone')
-            data_nascimento = request.form.get('data_nascimento')
-
-            curso_id = request.form.get('curso')
-
-            print("DADOS RECEBIDOS:")
-            print(nome)
-            print(email)
-            print(telefone)
-            print(data_nascimento)
-            print(curso_id)
-
+            # =========================
+            # DADOS DO ALUNO
+            # =========================
+            nome_aluno = request.form.get(
+                'nome_aluno'
+            )
+            data_nascimento_aluno = request.form.get(
+                'data_nascimento_aluno'
+            )
+            # =========================
+            # DADOS DO RESPONSÁVEL
+            # =========================
+            nome_responsavel = request.form.get(
+                'nome_responsavel'
+            )
+            cpf = request.form.get(
+                'cpf'
+            )
+            email = request.form.get(
+                'email'
+            )
+            telefone = request.form.get(
+                'telefone'
+            )
+            data_nascimento_responsavel = request.form.get(
+                'data_nascimento_responsavel'
+            )
+            rua = request.form.get(
+                'rua'
+            )
+            numero = request.form.get(
+                'numero'
+            )
+            complemento = request.form.get(
+                'complemento'
+            )
+            cep = request.form.get(
+                'cep'
+            )
+            # =========================
+            # MATRÍCULA
+            # =========================
+            curso_id = request.form.get(
+                'curso'
+            )
+            horario_id = request.form.get(
+                'horario'
+            )
+            print("DADOS RECEBIDOS")
             connection = create_connection()
-
             if not connection:
-
                 return "ERRO: conexão falhou"
-
             cursor = connection.cursor()
-
             # =========================
             # INSERE ALUNO
             # =========================
-
             sql_aluno = """
-            INSERT INTO alunos
-            (nome, email, telefone, data_nascimento)
-
-            VALUES (%s, %s, %s, %s)
-            """
-
-            valores_aluno = (
+            INSERT INTO alunos (
                 nome,
-                email,
-                telefone,
                 data_nascimento
             )
-
-            cursor.execute(sql_aluno, valores_aluno)
-
+            VALUES (%s, %s)
+            """
+            valores_aluno = (
+                nome_aluno,
+                data_nascimento_aluno
+            )
+            cursor.execute(
+                sql_aluno,
+                valores_aluno
+            )
             connection.commit()
-
             aluno_id = cursor.lastrowid
-
-            print("ALUNO CRIADO:", aluno_id)
-
+            print("ALUNO CRIADO")
+            # =========================
+            # INSERE RESPONSÁVEL
+            # =========================
+            sql_responsavel = """
+            INSERT INTO responsaveis (
+                nome,
+                cpf,
+                email,
+                telefone,
+                data_nascimento,
+                rua,
+                numero,
+                complemento,
+                cep
+            )
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+            """
+            valores_responsavel = (
+                nome_responsavel,
+                cpf,
+                email,
+                telefone,
+                data_nascimento_responsavel,
+                rua,
+                numero,
+                complemento,
+                cep
+            )
+            cursor.execute(
+                sql_responsavel,
+                valores_responsavel
+            )
+            connection.commit()
+            responsavel_id = cursor.lastrowid
+            print("RESPONSÁVEL CRIADO")
+            # =========================
+            # VÍNCULO ALUNO/RESPONSÁVEL
+            # =========================
+            sql_vinculo = """
+            INSERT INTO aluno_responsavel (
+                aluno_id,
+                responsavel_id
+            )
+            VALUES (%s, %s)
+            """
+            valores_vinculo = (
+                aluno_id,
+                responsavel_id
+            )
+            cursor.execute(
+                sql_vinculo,
+                valores_vinculo
+            )
+            connection.commit()
+            print("VÍNCULO CRIADO")
             # =========================
             # INSERE MATRÍCULA
             # =========================
-
             sql_matricula = """
-            INSERT INTO matriculas
-            (aluno_id, cursos_id)
-
-            VALUES (%s, %s)
+            INSERT INTO matriculas (
+                aluno_id,
+                cursos_id,
+                horario_id,
+                status
+            )
+            VALUES (%s, %s, %s, %s)
             """
-
             valores_matricula = (
                 aluno_id,
-                curso_id
+                curso_id,
+                horario_id,
+                'Pendente'
             )
-
             cursor.execute(
                 sql_matricula,
                 valores_matricula
             )
-
             connection.commit()
-
             print("MATRÍCULA CRIADA")
-
             cursor.close()
             connection.close()
-
             return """
             <!DOCTYPE html>
             <html lang="pt-br">
-
             <head>
-
                 <meta charset="UTF-8">
-
                 <meta
                     name="viewport"
                     content="width=device-width, initial-scale=1.0"
                 >
-
                 <title>
                     Matrícula Realizada
                 </title>
-
                 <style>
-
                     * {
-
                         margin: 0;
                         padding: 0;
                         box-sizing: border-box;
-
                         font-family: Arial, sans-serif;
                     }
-
                     body {
-
                         min-height: 100vh;
-
                         display: flex;
-
                         justify-content: center;
                         align-items: center;
-
                         background:
                             linear-gradient(
                                 135deg,
@@ -132,116 +191,70 @@ def matricula():
                                 #1d4ed8
                             );
                     }
-
                     .sucesso-box {
-
                         background: white;
-
                         padding: 60px;
-
                         border-radius: 28px;
-
                         text-align: center;
-
                         max-width: 550px;
-
                         box-shadow:
                             0 20px 50px rgba(0,0,0,0.18);
                     }
-
                     .icone {
-
                         font-size: 80px;
-
                         margin-bottom: 25px;
                     }
-
                     h1 {
-
                         color: #0f172a;
-
                         margin-bottom: 20px;
-
                         font-size: 38px;
                     }
-
                     p {
-
                         color: #475569;
-
                         font-size: 18px;
-
                         line-height: 1.7;
-
                         margin-bottom: 35px;
                     }
-
                     .btn {
-
                         display: inline-block;
-
                         padding: 16px 32px;
-
                         border-radius: 14px;
-
                         background: #2563eb;
-
                         color: white;
-
                         text-decoration: none;
-
                         font-weight: bold;
-
                         transition: 0.3s ease;
                     }
-
                     .btn:hover {
-
                         transform: translateY(-4px);
-
                         background: #1d4ed8;
                     }
-
                 </style>
-
             </head>
-
             <body>
-
                 <div class="sucesso-box">
-
                     <div class="icone">
                         🎉
                     </div>
-
                     <h1>
                         Matrícula realizada!
                     </h1>
-
                     <p>
                         Sua matrícula foi enviada com sucesso.<br>
                         Em breve nossa equipe entrará em contato pelo WhatsApp.
                     </p>
-
                     <a
                         href="/"
                         class="btn"
                     >
                         Voltar ao site
                     </a>
-
                 </div>
-
             </body>
-
             </html>
             """
-
         except Exception as e:
-
             print("ERRO:")
             print(e)
-
             return f"ERRO NO SISTEMA: {e}"
-
     return render_template('matricula.html')
