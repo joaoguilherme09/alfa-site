@@ -1403,7 +1403,7 @@
             rgba(15,23,42,0.65),
             rgba(15,23,42,0.65)
         ),
-        url("../img/faixa.png");
+        url("../img/399A380F-9CD4-45A2-8D4B-1FD32A0996F8.png");
 }
 
 .slide:nth-child(3) {
@@ -1413,9 +1413,28 @@
             rgba(15,23,42,0.65),
             rgba(15,23,42,0.65)
         ),
-        url("../img/faixa.png");
+        url("../img/E730B989-5ADB-4063-AA2D-FC7EEE6BDCF2.png");
 }
 
+.slide:nth-child(4) {
+
+    background-image:
+        linear-gradient(
+            rgba(15,23,42,0.65),
+            rgba(15,23,42,0.65)
+        ),
+        url("../img/4FBB8778-60B5-4DBF-9AFB-758A156083AE.png");
+}
+
+.slide:nth-child(5) {
+
+    background-image:
+        linear-gradient(
+            rgba(15,23,42,0.65),
+            rgba(15,23,42,0.65)
+        ),
+        url("../img/50AFD0A7-2F29-4534-8BBE-88B0868D87D4.png");
+}
 
 /* ATIVO */
 
