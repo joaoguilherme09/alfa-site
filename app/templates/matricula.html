@@ -40,7 +40,7 @@
                 Preencha os dados abaixo para iniciar sua jornada.
             </p>
 
-            <form action="/matricula" method="POST">
+            <form action="/matricula" method="POST" onsubmit="return validarCPF() && validarRG">
 
                 <!-- ========================= -->
                 <!-- DADOS DO ALUNO -->
@@ -115,10 +115,52 @@
                     <input
                         type="text"
                         name="cpf"
+                        id="cpf"
                         placeholder="000.000.000-00"
                         maxlength="14"
                         required
                         oninput="formatarCPF(this)"
+                    >
+
+                    <small
+
+                        id="cpfErro"
+                        style ="
+                        color: red;
+                        display: none;
+                        margin-top: 5px;
+                        "
+                    >
+                        CPF inválido
+                    </small>
+
+                    <small
+                        id="rgErro"
+                        style="
+                            color: red;
+                            display: none;
+                            margin-top: 5px;
+                        "
+                    >
+                        RG inválido.
+                    </small>
+                </div>
+
+                <!-- RG -->
+                <div class="form-group">
+
+                    <label>
+                        RG
+                    </label>
+
+                    <input
+                        type="text"
+                        name="rg"
+                        id="rg"
+                        placeholder="00.000.000-0"
+                        maxlength="12"
+                        required
+                        oninput="formatarRG(this)"
                     >
 
                 </div>
@@ -549,6 +591,187 @@
             }
         }
 
+
+        function validarCPF() {
+
+            const campoCPF =
+                document.getElementById('cpf');
+
+            const erroCPF =
+                document.getElementById('cpfErro');
+
+            let cpf = campoCPF.value;
+
+            cpf = cpf.replace(/\D/g, '');
+
+            campoCPF.style.border = '';
+            erroCPF.style.display = 'none';
+
+            if (cpf.length !== 11) {
+
+                campoCPF.style.border =
+                    '2px solid red';
+
+                erroCPF.style.display =
+                    'block';
+
+                return false;
+            }
+
+            if (/^(\d)\1+$/.test(cpf)) {
+
+                campoCPF.style.border =
+                    '2px solid red';
+
+                erroCPF.style.display =
+                    'block';
+
+                return false;
+            }
+
+            let soma = 0;
+
+            for (let i = 0; i < 9; i++) {
+
+                soma +=
+                    parseInt(cpf.charAt(i))
+                    * (10 - i);
+            }
+
+            let resto = 11 - (soma % 11);
+
+            if (resto >= 10) {
+                resto = 0;
+            }
+
+            if (
+                resto !==
+                parseInt(cpf.charAt(9))
+            ) {
+
+                campoCPF.style.border =
+                    '2px solid red';
+
+                erroCPF.style.display =
+                    'block';
+
+                return false;
+            }
+
+            soma = 0;
+
+            for (let i = 0; i < 10; i++) {
+
+                soma +=
+                    parseInt(cpf.charAt(i))
+                    * (11 - i);
+            }
+
+            resto = 11 - (soma % 11);
+
+            if (resto >= 10) {
+                resto = 0;
+            }
+
+            if (
+                resto !==
+                parseInt(cpf.charAt(10))
+            ) {
+
+                campoCPF.style.border =
+                    '2px solid red';
+
+                erroCPF.style.display =
+                    'block';
+
+                return false;
+            }
+
+            campoCPF.style.border =
+                '2px solid green';
+
+            erroCPF.style.display =
+                'none';
+
+            return true;
+        }
+
+        document
+            .getElementById('cpf')
+            .addEventListener(
+                'blur',
+                validarCPF
+            );
+
+   function formatarRG(input) {
+
+        let rg = input.value;
+
+        rg = rg.toUpperCase();
+
+        rg = rg.replace(/[^0-9X]/g, '');
+
+        rg = rg.substring(0, 9);
+
+        if (rg.length > 2) {
+            rg = rg.replace(
+                /^(\d{2})(\d)/,
+                '$1.$2'
+            );
+        }
+
+        if (rg.length > 6) {
+            rg = rg.replace(
+                /^(\d{2})\.(\d{3})(\d)/,
+                '$1.$2.$3'
+            );
+        }
+
+        if (rg.length > 10) {
+            rg = rg.replace(
+                /^(\d{2})\.(\d{3})\.(\d{3})([0-9X])/,
+                '$1.$2.$3-$4'
+            );
+        }
+
+        input.value = rg;
+    } 
+    
+    document
+        .getElementById('rg')
+        .addEventListener('blur', validarRG);
+
+    function validarRG() {
+
+        const campoRG =
+            document.getElementById('rg');
+
+        const erroRG =
+            document.getElementById('rgErro');
+
+        let rg = campoRG.value;
+
+        rg = rg.replace(/[^0-9X]/g, '');
+
+        if (rg.length < 8) {
+
+            campoRG.style.border =
+                '2px solid red';
+
+            erroRG.style.display =
+                'block';
+
+            return false;
+        }
+
+        campoRG.style.border =
+            '2px solid green';
+
+        erroRG.style.display =
+            'none';
+
+        return true;
+    }
     </script>
 
 </body>

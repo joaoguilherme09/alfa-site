@@ -23,6 +23,9 @@ def matricula():
             cpf = request.form.get(
                 'cpf'
             )
+            rg = request.form.get(
+                'rg'
+            )            
             email = request.form.get(
                 'email'
             )
@@ -86,6 +89,7 @@ def matricula():
             INSERT INTO responsaveis (
                 nome,
                 cpf,
+                rg,
                 email,
                 telefone,
                 data_nascimento,
@@ -94,11 +98,12 @@ def matricula():
                 complemento,
                 cep
             )
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
             """
             valores_responsavel = (
                 nome_responsavel,
                 cpf,
+                rg,
                 email,
                 telefone,
                 data_nascimento_responsavel,
