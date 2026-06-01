@@ -8,11 +8,19 @@ def matricula():
             # =========================
             # DADOS DO ALUNO
             # =========================
-            nome_aluno = request.form.get(
-                'nome_aluno'
+            nomes_alunos = request.form.getlist(
+                'nome_aluno[]'
             )
-            data_nascimento_aluno = request.form.get(
-                'data_nascimento_aluno'
+            datas_nascimento = request.form.getlist(
+                'data_nascimento_aluno[]'
+            )
+
+            cursos = request.form.getlist(
+                'curso[]'
+            )
+
+            horarios = request.form.getlist(
+                'horario[]'
             )
             # =========================
             # DADOS DO RESPONSÁVEL
@@ -47,41 +55,13 @@ def matricula():
             cep = request.form.get(
                 'cep'
             )
-            # =========================
-            # MATRÍCULA
-            # =========================
-            curso_id = request.form.get(
-                'curso'
-            )
-            horario_id = request.form.get(
-                'horario'
-            )
+           
             print("DADOS RECEBIDOS")
             connection = create_connection()
             if not connection:
                 return "ERRO: conexão falhou"
-            cursor = connection.cursor()
-            # =========================
-            # INSERE ALUNO
-            # =========================
-            sql_aluno = """
-            INSERT INTO alunos (
-                nome,
-                data_nascimento
-            )
-            VALUES (%s, %s)
-            """
-            valores_aluno = (
-                nome_aluno,
-                data_nascimento_aluno
-            )
-            cursor.execute(
-                sql_aluno,
-                valores_aluno
-            )
-            connection.commit()
-            aluno_id = cursor.lastrowid
-            print("ALUNO CRIADO")
+            cursor = connection.cursor()            
+    
             # =========================
             # INSERE RESPONSÁVEL
             # =========================
@@ -119,50 +99,88 @@ def matricula():
             connection.commit()
             responsavel_id = cursor.lastrowid
             print("RESPONSÁVEL CRIADO")
-            # =========================
-            # VÍNCULO ALUNO/RESPONSÁVEL
-            # =========================
-            sql_vinculo = """
-            INSERT INTO aluno_responsavel (
-                aluno_id,
-                responsavel_id
-            )
-            VALUES (%s, %s)
-            """
-            valores_vinculo = (
-                aluno_id,
-                responsavel_id
-            )
-            cursor.execute(
-                sql_vinculo,
-                valores_vinculo
-            )
-            connection.commit()
-            print("VÍNCULO CRIADO")
-            # =========================
-            # INSERE MATRÍCULA
-            # =========================
-            sql_matricula = """
-            INSERT INTO matriculas (
-                aluno_id,
-                cursos_id,
-                horario_id,
-                status
-            )
-            VALUES (%s, %s, %s, %s)
-            """
-            valores_matricula = (
-                aluno_id,
-                curso_id,
-                horario_id,
-                'Pendente'
-            )
-            cursor.execute(
-                sql_matricula,
-                valores_matricula
-            )
-            connection.commit()
-            print("MATRÍCULA CRIADA")
+
+
+            for i in range(len(nomes_alunos)):
+
+                # =========================
+                # INSERE ALUNO
+                # =========================
+
+                sql_aluno = """
+                INSERT INTO alunos (
+                    nome,
+                    data_nascimento
+                )
+                VALUES (%s, %s)
+                """
+
+                valores_aluno = (
+                    nomes_alunos[i],
+                    datas_nascimento[i]
+                )
+
+                cursor.execute(
+                    sql_aluno,
+                    valores_aluno
+                )
+
+                connection.commit()
+
+                aluno_id = cursor.lastrowid
+
+                # =========================
+                # VÍNCULO ALUNO/RESPONSÁVEL
+                # =========================
+
+                sql_vinculo = """
+                INSERT INTO aluno_responsavel (
+                    aluno_id,
+                    responsavel_id
+                )
+                VALUES (%s, %s)
+                """
+
+                valores_vinculo = (
+                    aluno_id,
+                    responsavel_id
+                )
+
+                cursor.execute(
+                    sql_vinculo,
+                    valores_vinculo
+                )
+
+                connection.commit()
+
+                # =========================
+                # MATRÍCULA
+                # =========================
+
+                sql_matricula = """
+                INSERT INTO matriculas (
+                    aluno_id,
+                    cursos_id,
+                    horario_id,
+                    status
+                )
+                VALUES (%s, %s, %s, %s)
+                """
+
+                valores_matricula = (
+                    aluno_id,
+                    cursos[i],
+                    horarios[i],
+                    'Pendente'
+                )
+
+                cursor.execute(
+                    sql_matricula,
+                    valores_matricula
+                )
+
+                connection.commit()
+
             cursor.close()
             connection.close()
             return """
