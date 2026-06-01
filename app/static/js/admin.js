@@ -6,19 +6,33 @@ async function abrirModal(id) {
 
     document.getElementById('conteudoAluno').innerHTML = `
 
-        <p><strong>Nome:</strong> ${aluno.nome}</p>
-
-        <p><strong>Email:</strong> ${aluno.email}</p>
-
-        <p><strong>Telefone:</strong> ${aluno.telefone}</p>
+        <p><strong>Aluno:</strong> ${aluno.nome}</p>
 
         <p><strong>Idade:</strong> ${aluno.idade} anos</p>
+
+        <hr>
+
+        <p><strong>Responsável:</strong> ${aluno.responsavel ?? '-'}</p>
+
+        <p><strong>CPF:</strong> ${aluno.cpf ?? '-'}</p>
+
+        <p><strong>Email:</strong> ${aluno.email ?? '-'}</p>
+
+        <p><strong>Telefone:</strong> ${aluno.telefone ?? '-'}</p>
+
+        <p>
+            <strong>Endereço:</strong>
+            ${aluno.rua ?? ''},
+            ${aluno.numero ?? ''}
+            ${aluno.complemento ?? ''}
+            - CEP: ${aluno.cep ?? ''}
+        </p>
+
+        <hr>
 
         <p><strong>Curso:</strong> ${aluno.curso}</p>
 
         <p><strong>Status:</strong> ${aluno.status}</p>
-
-        <p><strong>Data Matrícula:</strong> ${aluno.data_matricula}</p>
 
     `;
 

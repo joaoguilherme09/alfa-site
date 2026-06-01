@@ -5,6 +5,8 @@ from app.database.connection import create_connection
 
 from werkzeug.security import check_password_hash
 
+from flask import jsonify
+
 # Cria o Blueprint do admin
 admin_bp = Blueprint('admin', __name__)
 
@@ -37,6 +39,8 @@ def admin_login():
         
         if admin and check_password_hash(admin['senha'], senha):
 
+            session.permanent = True
+            
             session['admin_id'] = admin['id']
             session['admin_nome'] = admin['nome']
 
@@ -146,8 +150,6 @@ def alunos():
         SELECT
             id,
             nome,
-            email,
-            telefone,
 
             TIMESTAMPDIFF(YEAR, data_nascimento, CURDATE())
             -
@@ -191,13 +193,14 @@ def matriculas():
 
             matriculas.id,
             matriculas.aluno_id,
-                   
+
             alunos.nome AS aluno,
-                   
+
             cursos.nome AS curso,
-                   
-            matriculas.status,
-            matriculas.data_matricula
+
+            horarios.descricao AS horario,
+
+            matriculas.status
 
         FROM matriculas
 
@@ -206,6 +209,9 @@ def matriculas():
 
         JOIN cursos
         ON matriculas.cursos_id = cursos.id
+
+        LEFT JOIN horarios
+        ON matriculas.horario_id = horarios.id
 
         ORDER BY matriculas.id DESC
 
@@ -296,8 +302,7 @@ def detalhes_aluno(id):
         SELECT
 
             alunos.nome,
-            alunos.email,
-            alunos.telefone,
+
             TIMESTAMPDIFF(YEAR, alunos.data_nascimento, CURDATE())
             -
             (
@@ -306,17 +311,31 @@ def detalhes_aluno(id):
                 DATE_FORMAT(alunos.data_nascimento, '%m%d')
             ) AS idade,
 
+            responsaveis.nome AS responsavel,
+            responsaveis.cpf,
+            responsaveis.email,
+            responsaveis.telefone,
+            responsaveis.rua,
+            responsaveis.numero,
+            responsaveis.complemento,
+            responsaveis.cep,
+
             cursos.nome AS curso,
 
-            matriculas.status,
-            matriculas.data_matricula
+            matriculas.status
 
-        FROM matriculas
+        FROM alunos
 
-        JOIN alunos
-        ON matriculas.aluno_id = alunos.id
+        LEFT JOIN aluno_responsavel
+        ON alunos.id = aluno_responsavel.aluno_id
 
-        JOIN cursos
+        LEFT JOIN responsaveis
+        ON aluno_responsavel.responsavel_id = responsaveis.id
+
+        LEFT JOIN matriculas
+        ON alunos.id = matriculas.aluno_id
+
+        LEFT JOIN cursos
         ON matriculas.cursos_id = cursos.id
 
         WHERE alunos.id = %s
@@ -330,7 +349,8 @@ def detalhes_aluno(id):
     cursor.close()
     connection.close()
 
-    return aluno
+    return jsonify(aluno)
+
 
 # Logout admin
 @admin_bp.route('/admin/logout')

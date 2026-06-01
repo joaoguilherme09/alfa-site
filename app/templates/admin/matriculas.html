@@ -114,8 +114,8 @@
                         <th>ID</th>
                         <th>Aluno</th>
                         <th>Curso</th>
-                        <th>Status</th>
-                        <th>Data Matrícula</th>
+                        <th>Horário</th>
+                        <th>Status</th>                        
                         <th>Ações</th>
 
                     </tr>
@@ -146,6 +146,10 @@
                             {{ matricula.curso }}
                         </td>
 
+                        <td>
+                            {{ matricula.horario }}
+                        </td>
+
                        <td>
 
                             {% if matricula.status == 'pendente' %}
@@ -168,11 +172,7 @@
 
                             {% endif %}
 
-                        </td>
-
-                        <td>
-                            {{ matricula.data_matricula }}
-                        </td>
+                        </td>                        
 
                         <td>
 
