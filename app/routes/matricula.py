@@ -1,5 +1,7 @@
 from flask import Blueprint, render_template, request
 from app.database.connection import create_connection
+from datetime import datetime
+
 matricula_bp = Blueprint('matricula', __name__)
 @matricula_bp.route('/matricula', methods=['GET', 'POST'])
 def matricula():
@@ -19,9 +21,7 @@ def matricula():
                 'curso[]'
             )
 
-            horarios = request.form.getlist(
-                'horario[]'
-            )
+            periodos = request.form.getlist('periodo[]')
             # =========================
             # DADOS DO RESPONSÁVEL
             # =========================
@@ -55,7 +55,16 @@ def matricula():
             cep = request.form.get(
                 'cep'
             )
-           
+
+            hoje = datetime.today().date()
+            # Valida data do responsável
+            if datetime.strptime(
+                data_nascimento_responsavel,
+                "%Y-%m-%d"
+            ).date() > hoje:
+
+                return "Data de nascimento do responsável inválida."
+                    
             print("DADOS RECEBIDOS")
             connection = create_connection()
             if not connection:
@@ -106,6 +115,13 @@ def matricula():
                 # =========================
                 # INSERE ALUNO
                 # =========================
+
+                if datetime.strptime(
+                    datas_nascimento[i],
+                    "%Y-%m-%d"
+                ).date() > hoje:
+
+                    return f"Data de nascimento do aluno {i + 1} inválida."
 
                 sql_aluno = """
                 INSERT INTO alunos (
@@ -167,19 +183,22 @@ def matricula():
                 VALUES (%s, %s, %s, %s)
                 """
 
-                valores_matricula = (
-                    aluno_id,
-                    cursos[i],
-                    horarios[i],
-                    'Pendente'
-                )
+                for curso_id in cursos:
 
-                cursor.execute(
-                    sql_matricula,
-                    valores_matricula
-                )
+                    valores_matricula = (
+                        aluno_id,
+                        curso_id,
+                        periodos[i],
+                        'Pendente'
+                    )
+
+                    cursor.execute(
+                        sql_matricula,
+                        valores_matricula
+                    )
 
                 connection.commit()
+
 
             cursor.close()
             connection.close()

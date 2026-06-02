@@ -61,116 +61,8 @@
             );
 
             input.value = cep;
-        }
-
+        }                   
         
-        
-
-        const horarios = {
-
-            // Informática Básica
-            1: [
-                { id: 4, descricao: 'Segunda a Sábado - 09h às 11h' },
-                { id: 5, descricao: 'Segunda a Sábado - 14h às 16h' },
-                { id: 6, descricao: 'Segunda a Sábado - 16h às 18h' },
-                { id: 7, descricao: 'Terça e Quinta - 18h às 20h' }
-            ],
-
-            // Informática Completa
-            2: [
-                { id: 8, descricao: 'Segunda a Sábado - 09h às 11h' },
-                { id: 9, descricao: 'Segunda a Sábado - 14h às 16h' },
-                { id: 10, descricao: 'Segunda a Sábado - 16h às 18h' },
-                { id: 11, descricao: 'Terça e Quinta - 18h às 20h' }
-            ],
-
-            // Informática VIP
-            3: [
-                { id: 12, descricao: 'Segunda a Sábado - 09h às 11h' },
-                { id: 13, descricao: 'Segunda a Sábado - 14h às 16h' },
-                { id: 14, descricao: 'Segunda a Sábado - 16h às 18h' },
-                { id: 15, descricao: 'Terça e Quinta - 18h às 20h' }
-            ],
-
-            // Inglês
-            4: [
-                { id: 1, descricao: 'Terça a Sexta - 09h às 11h' },
-                { id: 2, descricao: 'Segunda a Quinta - 14h às 16h' },
-                { id: 3, descricao: 'Terça e Quinta - 19h às 20h' }
-            ],
-
-            // Reforço Escolar
-            5: [
-                { id: 20, descricao: 'Segunda a Sexta - 09h às 11h' },
-                { id: 21, descricao: 'Sábado - 09h às 12h' },
-                { id: 22, descricao: 'Segunda a Sexta - 14h às 16h' },
-                { id: 23, descricao: 'Terça e Quinta - 18h às 20h' }
-            ],
-
-            // Preparatório Embraer
-            6: [
-                { id: 17, descricao: 'Segunda, Quarta e Sexta - 16h às 18h' },
-                { id: 18, descricao: 'Terça, Quinta e Sexta - 14h às 16h' },
-                { id: 19, descricao: 'Terça, Quinta e Sexta - 16h às 18h' }
-            ],
-
-            // Preparatório ENEM
-            7: [
-                { id: 16, descricao: 'Segunda, Quarta e Sexta - 18h às 20h' }
-            ],
-
-            // Alfabetização
-            8: [
-                { id: 24, descricao: 'Segunda a Sexta - 09h às 11h' },
-                { id: 25, descricao: 'Sábado - 09h às 12h' },
-                { id: 26, descricao: 'Segunda a Sexta - 14h às 16h' },
-                { id: 27, descricao: 'Terça e Quinta - 18h às 20h' }
-            ]
-
-        };
-        function configurarCursos() {
-
-            document
-                .querySelectorAll('.curso-select')
-                .forEach(cursoSelect => {
-
-                    cursoSelect.onchange = function () {
-
-                        const cursoId = this.value;
-
-                        const bloco =
-                            this.closest('.aluno-bloco');
-
-                        const horarioSelect =
-                            bloco.querySelector('.horario-select');
-
-                        horarioSelect.innerHTML = `
-                            <option value="">
-                                Selecione um horário
-                            </option>
-                        `;
-
-                        if (horarios[cursoId]) {
-
-                            horarios[cursoId].forEach(horario => {
-
-                                horarioSelect.innerHTML += `
-                                    <option value="${horario.id}">
-                                        ${horario.descricao}
-                                    </option>
-                                `;
-                            });
-
-                        }
-
-                    };
-
-                });
-
-        }
-
-        configurarCursos();
-
 
         document
             .getElementById('cep')
@@ -379,7 +271,7 @@
 
         rg = rg.replace(/[^0-9X]/g, '');
 
-        if (rg.length < 8) {
+        if (rg.length !==9) {
 
             campoRG.style.border =
                 '2px solid red';
@@ -446,6 +338,18 @@
         const container =
             document.getElementById('alunos-container');
 
+        const quantidadeAtual =
+            document.querySelectorAll('.aluno-bloco').length;
+
+        if (quantidadeAtual >= 4) {
+
+            document.getElementById(
+                'limiteAlunosMsg'
+            ).style.display = 'block';
+
+            return;
+        }
+
         const blocoOriginal =
             document.querySelector('.aluno-bloco');
 
@@ -453,31 +357,356 @@
             blocoOriginal.cloneNode(true);
 
         const quantidade =
-            document.querySelectorAll('.aluno-bloco').length + 1;
+            quantidadeAtual + 1;
+
+        novoBloco.dataset.aluno =
+            quantidade;
 
         novoBloco.querySelector('h2').innerText =
             `Dados do Aluno ${quantidade}`;
 
+        /* limpa inputs */
+
         novoBloco.querySelectorAll('input').forEach(input => {
-            input.value = '';
+
+            if (
+                input.type === 'checkbox' ||
+                input.type === 'radio'
+            ) {
+
+                input.checked = false;
+
+            } else {
+
+                input.value = '';
+            }
+
         });
+
+        /* limpa selects */
 
         novoBloco.querySelectorAll('select').forEach(select => {
 
             select.selectedIndex = 0;
 
-            if (select.classList.contains('horario-select')) {
+        });
 
-                select.innerHTML = `
-                    <option value="">
-                        Selecione um horário
-                    </option>
-                `;
+        /* renomeia os campos do aluno */
+
+        novoBloco
+            .querySelectorAll('select[name^="curso_"]')
+            .forEach(select => {
+
+                select.name =
+                    `curso_${quantidade}[]`;
+
+            });
+
+        novoBloco
+            .querySelectorAll('select[name^="periodo_"]')
+            .forEach(select => {
+
+                select.name =
+                    `periodo_${quantidade}[]`;
+
+            });
+
+        /* remove cursos extras clonados */
+
+        const cursosAluno =
+            novoBloco.querySelector('.cursos-do-aluno');
+
+        const cursosExtras =
+            cursosAluno.querySelectorAll('.curso-item');
+
+        cursosExtras.forEach((curso, index) => {
+
+            if (index > 0) {
+                curso.remove();
             }
 
         });
 
         container.appendChild(novoBloco);
 
-        configurarCursos();
+        if (quantidade === 4) {
+
+            document.getElementById(
+                'adicionarAluno'
+            ).style.display = 'none';
+        }
+
+        const campoData =
+            novoBloco.querySelector('.dataNascimentoAluno');
+
+        const hoje =
+            new Date().toISOString().split('T')[0];
+
+        campoData.max = hoje;
+
+        campoData.addEventListener(
+            'change',
+            function () {
+                validarDataNascimento(this);
+            }
+        );
+
     }
+
+    function validarDatas() {
+
+        const hoje = new Date();
+
+        const dataResponsavel =
+            document.getElementById(
+                'dataNascimentoResponsavel'
+            ).value;
+
+        if (dataResponsavel) {
+
+            const data =
+                new Date(dataResponsavel);
+
+            if (data > hoje) {
+
+                alert(
+                    'A data de nascimento do responsável não pode estar no futuro.'
+                );
+
+                return false;
+            }
+        }
+
+        const alunos =
+            document.querySelectorAll(
+                '.dataNascimentoAluno'
+            );
+
+        for (let aluno of alunos) {
+
+            if (aluno.value) {
+
+                const data =
+                    new Date(aluno.value);
+
+                if (data > hoje) {
+
+                    alert(
+                        'A data de nascimento do aluno não pode estar no futuro.'
+                    );
+
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+
+    function validarTelefone() {
+
+        const telefone =
+            document.querySelector(
+                'input[name="telefone"]'
+            );
+
+        let numero =
+            telefone.value.replace(
+                /\D/g,
+                ''
+            );
+
+        if (numero.length !== 11) {
+
+            telefone.style.border =
+                '2px solid red';
+
+            alert(
+                'Telefone deve conter DDD + número (11 dígitos).'
+            );
+
+            return false;
+        }
+
+        telefone.style.border =
+            '2px solid green';
+
+        return true;
+    }
+
+
+    function validarNome(input) {
+
+        input.value =
+            input.value.replace(
+                /[^a-zA-ZÀ-ÿ\s]/g,
+                ''
+            );
+    }
+        
+
+    function somenteNumeros(input) {
+
+        input.value =
+            input.value.replace(
+                /\D/g,
+                ''
+            );
+    }
+
+
+    function validarComplemento(input) {
+
+        input.value =
+            input.value.replace(
+                /[^a-zA-ZÀ-ÿ0-9\s\-]/g,
+                ''
+            );
+    }
+
+    function validarDataNascimento(campo) {
+
+        const dataSelecionada =
+            new Date(campo.value);
+
+        const hoje =
+            new Date();
+
+        hoje.setHours(0, 0, 0, 0);
+
+        if (dataSelecionada > hoje) {
+
+            campo.style.border =
+                '2px solid red';
+
+            alert(
+                'A data de nascimento não pode ser no futuro.'
+            );
+
+            campo.value = '';
+
+            return false;
+        }
+
+        campo.style.border =
+            '2px solid green';
+
+        return true;
+    }
+
+    const hoje =
+        new Date().toISOString().split('T')[0];
+
+    /* Responsável */
+
+    document
+        .getElementById('dataNascimentoResponsavel')
+        .max = hoje;
+
+    document
+        .getElementById('dataNascimentoResponsavel')
+        .addEventListener(
+            'change',
+            function () {
+                validarDataNascimento(this);
+            }
+        );
+
+    /* Alunos */
+
+    document
+        .querySelectorAll('.dataNascimentoAluno')
+        .forEach(campo => {
+
+            campo.max = hoje;
+
+            campo.addEventListener(
+                'change',
+                function () {
+                    validarDataNascimento(this);
+                }
+            );
+
+        });
+
+    document.addEventListener('click', function(e) {
+
+        if (!e.target.classList.contains('btnAdicionarCurso')) {
+            return;
+        }
+
+        const alunoBloco =
+            e.target.closest('.aluno-bloco');
+
+        const numeroAluno =
+            alunoBloco.dataset.aluno;
+
+        const cursosAluno =
+            alunoBloco.querySelector('.cursos-do-aluno');
+
+        const quantidadeCursos =
+            cursosAluno.querySelectorAll('.curso-item').length + 1;
+
+        if (quantidadeCursos > 4) {
+
+            alert(
+                'Cada aluno pode escolher no máximo 4 cursos.'
+            );
+
+            return;
+        }
+
+        cursosAluno.insertAdjacentHTML(
+            'beforeend',
+            `
+            <div class="curso-item">
+
+                <select
+                    name="curso_${numeroAluno}[]"
+                    required
+                >
+
+                    <option value="">
+                        Selecione um curso
+                    </option>
+
+                    <option value="1">Informática Básica</option>
+                    <option value="2">Informática Completa</option>
+                    <option value="3">Informática VIP</option>
+                    <option value="4">Inglês</option>
+                    <option value="5">Reforço Escolar</option>
+                    <option value="6">Preparatório Embraer</option>
+                    <option value="7">Preparatório ENEM</option>
+                    <option value="8">Alfabetização</option>
+
+                </select>
+
+                <select
+                    name="periodo_${numeroAluno}[]"
+                    required
+                >
+
+                    <option value="">
+                        Selecione um período
+                    </option>
+
+                    <option value="1">
+                        Manhã
+                    </option>
+
+                    <option value="2">
+                        Tarde
+                    </option>
+
+                    <option value="3">
+                        Noite
+                    </option>
+
+                </select>
+
+            </div>
+            `
+        );
+
+    });

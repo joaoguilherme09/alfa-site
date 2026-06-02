@@ -40,7 +40,7 @@
                 Preencha os dados abaixo para iniciar sua jornada.
             </p>
 
-            <form action="/matricula" method="POST" onsubmit="return validarCPF() && validarRG() && validarEmail()">
+            <form action="/matricula" method="POST" onsubmit="return validarCPF() && validarRG() && validarEmail() && validarDatas()">
 
                 
 
@@ -63,6 +63,7 @@
                         type="text"
                         name="nome_responsavel"
                         placeholder="Digite o nome do responsável"
+                        oninput="validarNome(this)"
                         required
                     >
 
@@ -185,6 +186,7 @@
 
                     <input
                         type="date"
+                        id="dataNascimentoResponsavel"
                         name="data_nascimento_responsavel"
                         required
                     >
@@ -239,6 +241,7 @@
                         type="text"
                         name="numero"
                         placeholder="Digite o número"
+                        oninput="somenteNumeros(this)"
                         required
                     >
 
@@ -255,6 +258,7 @@
                         type="text"
                         name="complemento"
                         placeholder="Apartamento, bloco, etc"
+                        oninput="validarComplemento(this)"
                     >
                 </div>
 
@@ -281,6 +285,7 @@
                                 type="text"
                                 name="nome_aluno[]"
                                 placeholder="Digite o nome do aluno"
+                                oninput="validarNome(this)"
                                 required
                             >
 
@@ -295,85 +300,81 @@
 
                             <input
                                 type="date"
+                                class="dataNascimentoAluno"
                                 name="data_nascimento_aluno[]"
                                 required
                             >
 
                         </div>
 
-                        <!-- CURSO -->
+                        <!-- CURSOS DO ALUNO -->
                         <div class="form-group">
 
                             <label>
-                                Curso Desejado
+                                Cursos de Interesse
                             </label>
 
-                            <select
-                                name="curso[]"
-                                class="curso-select"
-                                required
-                            >
+                            <div class="cursos-do-aluno">
 
-                                <option value="">
-                                    Selecione um curso
-                                </option>
+                                <div class="curso-item">
 
-                                <option value="1">
-                                    Informática Básica
-                                </option>
+                                    <select name="curso_1[]" required>
 
-                                <option value="2">
-                                    Informática Completa
-                                </option>
+                                        <option value="">
+                                            Selecione um curso
+                                        </option>
 
-                                <option value="3">
-                                    Informática VIP
-                                </option>
+                                        <option value="1">Informática Básica</option>
+                                        <option value="2">Informática Completa</option>
+                                        <option value="3">Informática VIP</option>
+                                        <option value="4">Inglês</option>
+                                        <option value="5">Reforço Escolar</option>
+                                        <option value="6">Preparatório Embraer</option>
+                                        <option value="7">Preparatório ENEM</option>
+                                        <option value="8">Alfabetização</option>
 
-                                <option value="4">
-                                    Inglês
-                                </option>
+                                    </select>
 
-                                <option value="5">
-                                    Reforço Escolar
-                                </option>
+                                    <select name="periodo_1[]" required>
 
-                                <option value="6">
-                                    Preparatório Embraer
-                                </option>
+                                        <option value="">
+                                            Selecione um período
+                                        </option>
 
-                                <option value="7">
-                                    Preparatório ENEM
-                                </option>
+                                        <option value="1">
+                                            Manhã
+                                        </option>
 
-                                <option value="8">
-                                    Alfabetização
-                                </option>
+                                        <option value="2">
+                                            Tarde
+                                        </option>
 
-                            </select>
+                                        <option value="3">
+                                            Noite
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+                            </div>
+
+                            <div class="adicionar-curso-container">
+
+                                <button
+                                    type="button"
+                                    class="btnAdicionarCurso"
+                                >
+                                    +
+                                </button>
+
+                                <span>Adicionar outro curso</span>
+
+                            </div>
 
                         </div>
 
-                        <!-- HORÁRIO -->
-                        <div class="form-group">
 
-                            <label>
-                                Horário
-                            </label>
-
-                            <select
-                                name="horario[]"
-                                class="horario-select"
-                                required
-                            >
-
-                                <option value="">
-                                    Selecione um horário
-                                </option>
-
-                            </select>
-
-                        </div>
 
                     </div>
 
@@ -385,7 +386,19 @@
                     class="btn-form"
                 >
                     + Adicionar Outro Aluno
-                </button>                          
+                </button>
+                <p
+                    id="limiteAlunosMsg"
+                    style="
+                        display: none;
+                        color: red;
+                        margin-top: 10px;
+                        text-align: center;
+                    "
+                >
+                    Limite máximo de 4 alunos atingido.
+                    Finalize esta matrícula para cadastrar mais alunos.
+                </p>                          
 
                 <!-- BOTÃO -->
                 <button

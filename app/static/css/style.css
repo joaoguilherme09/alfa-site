@@ -357,3 +357,37 @@ section {
     }
 
 }
+
+
+.adicionar-curso-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btnAdicionarCurso {
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    background: #2f67ff;
+    color: white;
+
+    font-size: 26px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.btnAdicionarCurso:hover {
+    opacity: .9;
+}
+
+.adicionar-curso-container span {
+    font-weight: 600;
+}
