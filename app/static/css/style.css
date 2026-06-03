@@ -72,6 +72,8 @@
 html {
 
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+
 }
 
 
@@ -88,6 +90,8 @@ body {
     color: var(--dark);
 
     overflow-x: hidden;
+
+    min-height: 100vh;
 }
 
 
@@ -397,14 +401,6 @@ section {
 
 .adicionar-curso-container span {
     font-weight: 600;
-}
-
-.curso-item {
-
-    display: flex;
-    flex-direction: column;
-
-    gap: 25px;
 }
 
 .curso-item {

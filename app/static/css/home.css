@@ -92,7 +92,7 @@
 
     backdrop-filter: blur(8px);
 
-    margin-left: -200px;
+    margin-left: 0;
 
     overflow: hidden;
 }
@@ -120,7 +120,7 @@
 
 .hero-text h1 {
 
-    font-size: 3.0rem;
+    font-size: clamp(2rem, 5vw, 3rem);
 
     line-height: 1.05;
 
@@ -551,43 +551,79 @@
 
 }
 
-
 @media (max-width: 768px) {
 
     .hero {
 
-        padding-top: 120px;
+        min-height: auto;
+
+        padding: 120px 15px 60px;
+    }
+
+    .hero-container {
+
+        flex-direction: column;
+
+        text-align: center;
+
+        gap: 20px;
+
+        padding: 0;
     }
 
     .hero-text {
 
+        width: 100%;
+
+        max-width: 100%;
+
         margin-left: 0;
 
-        padding: 30px;
+        padding: 25px;
+
+        border-radius: 20px;
+    }
+
+    .hero-text span {
+
+        font-size: 13px;
+
+        padding: 8px 14px;
     }
 
     .hero-text h1 {
 
-        font-size: 2.8rem;
+        font-size: 2rem;
+
+        line-height: 1.2;
     }
 
-    .section-title h2 {
+    .hero-text p {
 
-        font-size: 2.2rem;
+        font-size: 15px;
+
+        line-height: 1.7;
+
+        margin-bottom: 25px;
     }
 
-    .cta-box {
+    .hero-buttons {
 
-        padding: 50px 30px;
+        flex-direction: column;
+
+        width: 100%;
     }
 
-    .cta-box h2 {
+    .hero-btn {
 
-        font-size: 2.2rem;
+        width: 100%;
+
+        text-align: center;
+
+        justify-content: center;
     }
 
 }
-
 /* =========================================
    PÁGINAS DOS CURSOS
 ========================================= */

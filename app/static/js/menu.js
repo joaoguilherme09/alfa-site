@@ -1,49 +1,20 @@
 // =========================
-// MENU DROPDOWN
+// MENU MOBILE
 // =========================
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    const dropdown = document.querySelector(".dropdown");
-    const dropdownMenu = document.querySelector(".dropdown-menu");
+    const mobileButton = document.querySelector(".mobile-menu-button");
+    const mobileMenu = document.querySelector(".menu");
 
-    // =========================
-    // ABRIR MENU
-    
-    // =========================
+    if (mobileButton) {
 
-    dropdown.addEventListener("mouseenter", () => {
+        mobileButton.addEventListener("click", () => {
 
-        dropdownMenu.style.display = "block";
+            mobileMenu.classList.toggle("active");
 
-    });
+        });
 
-    // =========================
-    // FECHAR MENU
-    // =========================
-
-    dropdown.addEventListener("mouseleave", () => {
-
-        dropdownMenu.style.display = "none";
-
-    });
+    }
 
 });
-
-
-// =========================
-// MENU MOBILE
-// =========================
-
-const mobileButton = document.querySelector(".mobile-menu-button");
-const mobileMenu = document.querySelector(".menu");
-
-if (mobileButton) {
-
-    mobileButton.addEventListener("click", () => {
-
-        mobileMenu.classList.toggle("active");
-
-    });
-
-}
