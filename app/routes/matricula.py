@@ -16,11 +16,7 @@ def matricula():
             datas_nascimento = request.form.getlist(
                 'data_nascimento_aluno[]'
             )
-
-            cursos = request.form.getlist(
-                'curso[]'
-            )
-
+            
             periodos = request.form.getlist('periodo[]')
             # =========================
             # DADOS DO RESPONSÁVEL
@@ -145,6 +141,18 @@ def matricula():
 
                 aluno_id = cursor.lastrowid
 
+                cursos_aluno = request.form.getlist(
+                    f'curso_{i + 1}[]'
+                )
+
+                periodos_aluno = request.form.getlist(
+                    f'periodo_{i + 1}[]'
+                )
+
+                print(f'Aluno {i+1}')
+                print(cursos_aluno)
+                print(periodos_aluno)
+
                 # =========================
                 # VÍNCULO ALUNO/RESPONSÁVEL
                 # =========================
@@ -183,12 +191,12 @@ def matricula():
                 VALUES (%s, %s, %s, %s)
                 """
 
-                for curso_id in cursos:
+                for j in range(len(cursos_aluno)):
 
                     valores_matricula = (
                         aluno_id,
-                        curso_id,
-                        periodos[i],
+                        cursos_aluno[j],
+                        periodos_aluno[j],
                         'Pendente'
                     )
 

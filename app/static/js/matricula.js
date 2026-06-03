@@ -662,10 +662,11 @@
             `
             <div class="curso-item">
 
-                <select
-                    name="curso_${numeroAluno}[]"
-                    required
-                >
+                <label>
+                    Curso de Interesse
+                </label>
+
+                <select name="curso[]" required>
 
                     <option value="">
                         Selecione um curso
@@ -682,26 +683,19 @@
 
                 </select>
 
-                <select
-                    name="periodo_${numeroAluno}[]"
-                    required
-                >
+                <label>
+                    Turno
+                </label>
+
+                <select name="periodo[]" required>
 
                     <option value="">
                         Selecione um período
                     </option>
 
-                    <option value="1">
-                        Manhã
-                    </option>
-
-                    <option value="2">
-                        Tarde
-                    </option>
-
-                    <option value="3">
-                        Noite
-                    </option>
+                    <option value="1">Manhã</option>
+                    <option value="2">Tarde</option>
+                    <option value="3">Noite</option>
 
                 </select>
 
