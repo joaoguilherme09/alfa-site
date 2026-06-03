@@ -1270,40 +1270,36 @@
 /* =========================================
    WHATSAPP FLOAT
 ========================================= */
-
 .whatsapp-float {
-    
-    margin-right: 5px;
-
-    gap: 16px;
 
     position: fixed;
 
-    padding: 0 22px;
-    height: 70px;
+    bottom: 20px;
+    right: 15px;
 
-    bottom: 30px;
-    right: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 12px 18px;
 
     background: #25d366;
 
-    border-radius: 1%;
+    color: white;
 
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
+    border-radius: 50px;
 
     box-shadow:
-        0 10px 30px rgba(37,211,102,0.4);
+        0 10px 30px rgba(37,211,102,.4);
 
     z-index: 9999;
 
-    transition: 0.3s ease;
+    transition: .3s ease;
 
     animation: pulseWhatsapp 2s infinite;
 }
-
 
 /* IMAGEM */
 
@@ -1355,8 +1351,14 @@
         width: 60px;
         height: 60px;
 
-        bottom: 20px;
-        right: 20px;
+        padding: 0;
+
+        border-radius: 50%;
+    }
+
+    .whatsapp-float span {
+
+        display: none;
     }
 
     .whatsapp-float img {
