@@ -76,7 +76,6 @@
     color: #dbeafe;
 }
 
-
 /* =========================================
    LOGO
 ========================================= */
@@ -85,21 +84,26 @@
 
     display: flex;
 
+    justify-content: center;
     align-items: center;
+
+    width: 200px;
+
+    height: 90px;
 
     background: white;
 
-    height: 100%;
+    padding: 0;
 
-    padding: 0 55px;
-
-    border-top-right-radius: 90px;
-    border-bottom-right-radius: 90px;
+    border-top-right-radius: 70px;
+    border-bottom-right-radius: 70px;
 }
 
 .logo-img {
 
-    width: 85px;
+    width: 90px;
+
+    height: auto;
 
     object-fit: contain;
 
@@ -327,7 +331,6 @@
 /* =========================================
    RESPONSIVO
 ========================================= */
-
 @media (max-width: 992px) {
 
     .navbar {
@@ -339,12 +342,25 @@
 
         gap: 25px;
     }
-    
+
     .navbar-container {
 
-    margin: 12px 15px 0;
+        margin: 12px 15px 0;
 
-    padding: 0 20px;
+        height: 80px;
+
+        padding: 0 20px;
+
+        background:
+        radial-gradient(circle at 22% 50%, #2563eb 0%, #2563eb 13%, transparent 14%),
+        linear-gradient(
+            90deg,
+            white 0%,
+            white 28%,
+            #2563eb 28%,
+            #2563eb 100%
+        );
+
     }
 
 }
@@ -441,12 +457,16 @@
 
     .logo {
 
-        padding: 0 25px;
-    }
+        width: 150px;
 
+        height: 75px;
+
+    }
+        
     .logo-img {
 
-        width: 60px;
+        width: 80px;
+
     }
 
 }
