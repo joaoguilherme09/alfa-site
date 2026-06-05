@@ -420,3 +420,19 @@ section {
 
     color: #0f2348;
 }
+
+.contato-link {
+
+    color: white;
+
+    font-weight: 600;
+
+    display: inline-block;
+
+    margin-top: 10px;
+}
+
+.contato-link:hover {
+
+    color: #60a5fa;
+}
