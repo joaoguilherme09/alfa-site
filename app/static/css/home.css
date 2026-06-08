@@ -1739,3 +1739,37 @@
 
     background-repeat: no-repeat;
 }
+
+
+.agende-visita {
+    padding: 80px 20px;
+    text-align: center;
+    background: #f8f9fa;
+}
+
+.agende-visita h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.agende-visita p {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.btn-agendar {
+    display: inline-block;
+    padding: 15px 30px;
+    background: #25D366;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-agendar:hover {
+    transform: translateY(-2px);
+}
