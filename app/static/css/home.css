@@ -1451,7 +1451,7 @@
             rgba(15,23,42,0.65),
             rgba(15,23,42,0.65)
         ),
-        url("../img/E730B989-5ADB-4063-AA2D-FC7EEE6BDCF2.png");
+        url("../img/86F99804-A649-459B-9334-4038097E963F.png");
 }
 
 .slide:nth-child(4) {
@@ -1631,4 +1631,83 @@
 
     box-shadow:
         0 20px 50px rgba(0,0,0,0.35);
+}
+
+
+/* =========================================
+   CARROSSEL MOBILE CURSOS
+========================================= */
+
+@media (max-width: 768px) {
+
+    .cursos-grid {
+
+        display: flex;
+
+        overflow-x: auto;
+
+        gap: 20px;
+
+        scroll-snap-type: x mandatory;
+
+        padding-bottom: 10px;
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .cursos-grid::-webkit-scrollbar {
+
+        display: none;
+    }
+
+    .curso-card {
+
+        min-width: 85%;
+
+        flex-shrink: 0;
+
+        scroll-snap-align: center;
+    }
+
+}
+
+
+/* =========================================
+   HERO REFORÇO E ALFABETIZAÇÃO
+========================================= */
+
+.reforco-hero {
+
+    background:
+        linear-gradient(
+            rgba(15,23,42,0.75),
+            rgba(37,99,235,0.75)
+        ),
+        url("../img/reforco.png");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+}
+
+/* =========================================
+   HERO EMBRAER
+========================================= */
+
+.embraer-hero {
+
+    background:
+        linear-gradient(
+            rgba(15,23,42,0.75),
+            rgba(37,99,235,0.75)
+        ),
+        url("../img/embraer.png");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
 }
