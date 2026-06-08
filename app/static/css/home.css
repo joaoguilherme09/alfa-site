@@ -1633,7 +1633,6 @@
         0 20px 50px rgba(0,0,0,0.35);
 }
 
-
 /* =========================================
    CARROSSEL MOBILE CURSOS
 ========================================= */
@@ -1646,11 +1645,11 @@
 
         overflow-x: auto;
 
-        gap: 20px;
+        gap: 15px;
 
         scroll-snap-type: x mandatory;
 
-        padding-bottom: 10px;
+        padding: 0 10px 10px;
 
         -webkit-overflow-scrolling: touch;
     }
@@ -1662,16 +1661,45 @@
 
     .curso-card {
 
-        min-width: 85%;
+        flex: 0 0 260px;
 
-        flex-shrink: 0;
+        padding: 20px;
+
+        min-height: auto;
 
         scroll-snap-align: center;
     }
 
+    .curso-icon {
+
+        width: 60px;
+        height: 60px;
+
+        font-size: 24px;
+
+        margin-bottom: 15px;
+    }
+
+    .curso-card h3 {
+
+        font-size: 1.3rem;
+
+        margin-bottom: 12px;
+    }
+
+    .curso-card p {
+
+        display: none;
+    }
+
+    .curso-link {
+
+        font-size: 15px;
+
+        display: inline-block;
+    }
+
 }
-
-
 /* =========================================
    HERO REFORÇO E ALFABETIZAÇÃO
 ========================================= */
