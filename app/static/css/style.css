@@ -476,12 +476,43 @@ section {
     transition: .3s;
 }
 
-.back-button i {
-    color: #0f172a;
-}
-
 .back-button:hover {
 
     transform: scale(1.08);
+
+}
+
+
+
+/* =========================================
+   BANNER ALUNOS
+========================================= */
+
+.banner-alunos {
+
+    width: 100%;
+
+    overflow: hidden;
+}
+
+.banner-alunos img {
+
+    width: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .banner-alunos img {
+
+        min-height: 250px;
+
+        object-fit: cover;
+    }
 
 }
