@@ -398,6 +398,45 @@
                     Finalize esta matrícula para cadastrar mais alunos.
                 </p>                          
 
+
+                <div class="checkbox-group">
+
+                    <label>
+
+                        <input
+                            type="checkbox"
+                            id="aceite"
+                            required
+                        >
+
+                        Eu autorizo o recebimento de comunicações institucionais da Alfa Cursos por WhatsApp e e-mail.
+
+                    </label>
+
+                </div>
+
+                <div class="checkbox-group">
+
+                    <label>
+
+                        <input
+                            type="checkbox"
+                            id="privacidade"
+                            required
+                        >
+
+                        Ao informar meus dados, declaro que li e concordo com a Política de Privacidade e Termo de Consentimento para Tratamento de Dados Pessoais.
+                        <a
+                            href="{{ url_for('static', filename='docs/POLITICA DE PRIVACIDADE E TERMO DE CONSENTIMENTO PARA TRATAMENTO DE DADOS PESSOAIS.pdf') }}"
+                            target="_blank"
+                        >
+                            Política de Privacidade
+                        </a>.
+
+                    </label>
+
+                </div>
+
                 <!-- BOTÃO -->
                 <button
                     type="submit"

@@ -1441,7 +1441,7 @@
             rgba(15,23,42,0.65),
             rgba(15,23,42,0.65)
         ),
-        url("../img/399A380F-9CD4-45A2-8D4B-1FD32A0996F8.png");
+        url("../img/8D9F42CA-3EF2-48C3-875D-FF9E3689F5D1.png");
 }
 
 .slide:nth-child(3) {
@@ -1451,28 +1451,9 @@
             rgba(15,23,42,0.65),
             rgba(15,23,42,0.65)
         ),
-        url("../img/86F99804-A649-459B-9334-4038097E963F.png");
+        url("../img/.png");
 }
 
-.slide:nth-child(4) {
-
-    background-image:
-        linear-gradient(
-            rgba(15,23,42,0.65),
-            rgba(15,23,42,0.65)
-        ),
-        url("../img/4FBB8778-60B5-4DBF-9AFB-758A156083AE.png");
-}
-
-.slide:nth-child(5) {
-
-    background-image:
-        linear-gradient(
-            rgba(15,23,42,0.65),
-            rgba(15,23,42,0.65)
-        ),
-        url("../img/50AFD0A7-2F29-4534-8BBE-88B0868D87D4.png");
-}
 
 /* ATIVO */
 
@@ -1772,4 +1753,100 @@
 
 .btn-agendar:hover {
     transform: translateY(-2px);
+}
+
+
+.checkbox-group {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+    font-size: 14px;
+
+    color: #475569;
+}
+
+.checkbox-group label {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+    line-height: 1.6;
+
+    cursor: pointer;
+}
+
+.checkbox-group input {
+
+    margin-top: 4px;
+
+    width: 18px;
+    height: 18px;
+}
+
+.checkbox-group a {
+
+    color: #2563eb;
+
+    font-weight: 600;
+}
+
+
+/* -- BOTAO VOLTAR -- */
+
+.btn-voltar-float {
+
+    position: fixed;
+
+    top: 110px;
+    left: 20px;
+
+    z-index: 999;
+
+    background: rgba(255,255,255,0.95);
+
+    backdrop-filter: blur(10px);
+
+    padding: 12px 18px;
+
+    border-radius: 14px;
+
+    color: #2563eb;
+
+    font-weight: 600;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.12);
+
+    transition: .3s ease;
+}
+
+.btn-voltar-float:hover {
+
+    transform: translateX(-4px);
+
+    background: white;
+}
+
+@media (max-width: 768px) {
+
+    .btn-voltar-float {
+
+        top: auto;
+
+        bottom: 25px;
+
+        left: 20px;
+
+        padding: 12px 16px;
+
+        font-size: 14px;
+    }
+
 }
