@@ -18,7 +18,17 @@ def ingles():
 def informatica():
     return render_template('cursos/informatica.html')
 
-# Página do curso preparatório
+# Página do curso preparatório enem
 @cursos_bp.route('/cursos/enem')
 def enem():
     return render_template('cursos/enem.html')
+
+# Página do curso Reforço e Alfabetização
+@cursos_bp.route('/cursos/reforco')
+def reforco():
+    return render_template('cursos/reforco.html')
+
+# Página do Preparatório Embraer
+@cursos_bp.route('/cursos/embraer')
+def embraer():
+    return render_template('cursos/embraer.html')
