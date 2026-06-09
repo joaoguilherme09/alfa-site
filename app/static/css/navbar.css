@@ -20,7 +20,7 @@
 
     width: 100%;
 
-    max-width: 800px;    
+    max-width: 950px;    
 
     margin: 35px auto 0;
 
@@ -44,7 +44,7 @@
         #2563eb 100%
     );
 
-    border-radius: 0px;
+    border-radius: 999px;
 
     box-shadow:
         0 12px 35px rgba(0,0,0,0.08);
@@ -95,8 +95,7 @@
 
     padding: 0;
 
-    border-top-right-radius: 70px;
-    border-bottom-right-radius: 70px;
+    border-radius: 999px;
 }
 
 .logo-img {
@@ -351,6 +350,8 @@
 
         padding: 0 20px;
 
+        border-radius: 50px;
+
         background:
         radial-gradient(circle at 22% 50%, #2563eb 0%, #2563eb 13%, transparent 14%),
         linear-gradient(
@@ -453,6 +454,8 @@
         margin: 10px;
 
         padding: 0 15px;
+
+        border-radius: 40px;
     }
 
     .logo {
