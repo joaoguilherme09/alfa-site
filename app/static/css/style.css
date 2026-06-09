@@ -516,24 +516,20 @@ section {
     }
 
 }
-
-
 /* =========================================
    CONTADORES
 ========================================= */
 
 .contadores {
 
-    padding: 80px 20px;
+    padding: 90px 20px;
 
     background:
     linear-gradient(
         135deg,
-        #2563eb,
-        #1d4ed8
+        #0f172a,
+        #1e293b
     );
-
-    color: white;
 }
 
 .contadores .container {
@@ -542,7 +538,9 @@ section {
 
     justify-content: center;
 
-    gap: 80px;
+    align-items: center;
+
+    gap: 40px;
 
     flex-wrap: wrap;
 }
@@ -550,34 +548,122 @@ section {
 .contador-item {
 
     text-align: center;
+
+    min-width: 220px;
+}
+
+.contador-icon {
+
+    font-size: 50px;
+
+    margin-bottom: 15px;
 }
 
 .contador-item h2 {
 
-    font-size: 3.5rem;
+    font-size: 4rem;
 
     font-weight: 800;
 
     margin-bottom: 10px;
 }
 
+.contador {
+
+    color: white;
+
+    text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.4),
+        0 0 25px rgba(255,255,255,.3),
+        0 0 40px rgba(255,255,255,.2);
+}
 .contador-item p {
 
-    font-size: 1.1rem;
+    color: #cbd5e1;
 
-    opacity: 0.95;
+    font-size: 1rem;
+
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+}
+
+.contador-linha {
+
+    width: 80px;
+
+    height: 4px;
+
+    border-radius: 50px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #60a5fa,
+        #2563eb
+    );
+}
+
+.contador-item:hover {
+
+    transform: translateY(-8px);
+
+    transition: .3s;
 }
 
 @media (max-width: 768px) {
 
     .contadores .container {
 
-        gap: 40px;
+        display: flex;
+
+        flex-direction: row;
+
+        flex-wrap: nowrap;
+
+        justify-content: space-evenly;
+
+        gap: 10px;
+    }
+
+    .contador-linha {
+
+        display: none;
+    }
+
+    .contador-item {
+
+        min-width: auto;
     }
 
     .contador-item h2 {
 
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
+
+    .contador-icon img {
+
+        width: 50px;
+    }
+
+}
+
+.contador-numero {
+
+    color: white;
+
+    text-shadow:
+        0 0 10px rgba(255,255,255,.4),
+        0 0 25px rgba(255,255,255,.3);
+}
+
+.contador-icon i {
+
+    font-size: 55px;
+
+    color: rgb(40, 99, 226);
+
 
 }
