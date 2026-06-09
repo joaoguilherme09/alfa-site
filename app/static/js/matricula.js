@@ -666,7 +666,7 @@
                     Curso de Interesse
                 </label>
 
-                <select name="curso[]" required>
+                <select name="curso_${numeroAluno}[]" required>
 
                     <option value="">
                         Selecione um curso
@@ -687,7 +687,7 @@
                     Turno
                 </label>
 
-                <select name="periodo[]" required>
+                <select name="periodo_${numeroAluno}[]" required>
 
                     <option value="">
                         Selecione um período
