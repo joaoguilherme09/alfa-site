@@ -1702,6 +1702,66 @@
 }
 
 /* =========================================
+   HERO INGLES
+========================================= */
+
+.ingles-hero {
+
+    background:
+        linear-gradient(
+            rgba(15,23,42,0.75),
+            rgba(37,99,235,0.75)
+        ),
+        url("../img/F63C58E8-193E-4F84-9A68-738C4DED7D02.png");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+}
+
+/* =========================================
+   HERO INFORMATICA
+========================================= */
+
+.informatica-hero {
+
+    background:
+        linear-gradient(
+            rgba(15,23,42,0.75),
+            rgba(37,99,235,0.75)
+        ),
+        url("../img/86F99804-A649-459B-9334-4038097E963F.png");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+}
+
+/* =========================================
+   HERO ENEM
+========================================= */
+
+.enem-hero {
+
+    background:
+        linear-gradient(
+            rgba(15,23,42,0.75),
+            rgba(37,99,235,0.75)
+        ),
+        url("../img/enem.png");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+}
+
+/* =========================================
    HERO EMBRAER
 ========================================= */
 
@@ -1712,7 +1772,7 @@
             rgba(15,23,42,0.75),
             rgba(37,99,235,0.75)
         ),
-        url("../img/embraer.png");
+        url("../img/IMG_5657.png");
 
     background-size: cover;
 
@@ -1720,6 +1780,7 @@
 
     background-repeat: no-repeat;
 }
+
 
 
 .agende-visita {
@@ -1798,55 +1859,4 @@
 }
 
 
-/* -- BOTAO VOLTAR -- */
 
-.btn-voltar-float {
-
-    position: fixed;
-
-    top: 110px;
-    left: 20px;
-
-    z-index: 999;
-
-    background: rgba(255,255,255,0.95);
-
-    backdrop-filter: blur(10px);
-
-    padding: 12px 18px;
-
-    border-radius: 14px;
-
-    color: #2563eb;
-
-    font-weight: 600;
-
-    box-shadow:
-        0 8px 25px rgba(0,0,0,0.12);
-
-    transition: .3s ease;
-}
-
-.btn-voltar-float:hover {
-
-    transform: translateX(-4px);
-
-    background: white;
-}
-
-@media (max-width: 768px) {
-
-    .btn-voltar-float {
-
-        top: auto;
-
-        bottom: 25px;
-
-        left: 20px;
-
-        padding: 12px 16px;
-
-        font-size: 14px;
-    }
-
-}
