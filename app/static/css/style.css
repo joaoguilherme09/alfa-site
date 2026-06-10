@@ -438,16 +438,12 @@ section {
 }
 
 
+
 /* =========================================
-   BOTÃO VOLTAR FIXO
+   BOTÃO VOLTAR
 ========================================= */
 
 .back-button {
-
-    position: fixed;
-
-    top: 100px; /* abaixo da logo */
-    left: 30px;
 
     width: 50px;
     height: 50px;
@@ -459,47 +455,25 @@ section {
 
     background: rgba(255,255,255,0.95);
 
-    color: #0f172a;
+    color: #1e293b;
 
-    font-size: 24px;
-    font-weight: 700;
+    font-size: 26px;
 
     border-radius: 50%;
 
     text-decoration: none;
 
     box-shadow:
-        0 8px 25px rgba(0,0,0,0.15);
+        0 8px 25px rgba(0,0,0,.15);
 
-    z-index: 99999;
-
-    transition: .3s;
+    transition: .3s ease;
 }
 
 .back-button:hover {
 
     transform: scale(1.08);
 
-    background: #2563eb;
-
-    color: white;
 }
-
-@media (max-width: 768px) {
-
-    .back-button {
-
-        top: 90px;
-        left: 25px;
-
-        width: 45px;
-        height: 45px;
-
-        font-size: 20px;
-    }
-
-}
-
 
 /* =========================================
    BANNER ALUNOS
@@ -695,6 +669,12 @@ section {
     top: 20px;
     left: 20px;
 
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
     z-index: 99999;
 }
 
@@ -736,7 +716,15 @@ section {
 
 .logo-home img {
 
-    width: 50px;
+    width: 65px;
+
+    display: block;
+
+    background: transparent;
+
+    border: none;
+
+    box-shadow: none;
 }
 
 .logo-home:hover {

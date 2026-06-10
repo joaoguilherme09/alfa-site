@@ -16,16 +16,22 @@
 </head>
 <body>
 
-<a href="/" class="logo-canto">
-    <img
-        src="{{ url_for('static', filename='img/logo/logo.png') }}"
-        alt="Alfa Cursos"
-    >
-</a>
+<div class="logo-canto">
 
-<a href="javascript:history.back()" class="back-button">
-    ⬅️
-</a>
+    <a href="/" class="logo-home">
+
+        <img
+            src="{{ url_for('static', filename='img/logo/logo.png') }}"
+            alt="Alfa Cursos"
+        >
+
+    </a>
+
+    <a href="javascript:history.back()" class="back-button">
+        ←
+    </a>
+
+</div>
 
 <!-- HERO -->
 <section class="curso-hero embraer-hero">
