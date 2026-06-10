@@ -446,8 +446,8 @@ section {
 
     position: fixed;
 
-    top: 20px;
-    left: 20px;
+    top: 100px; /* abaixo da logo */
+    left: 30px;
 
     width: 50px;
     height: 50px;
@@ -480,8 +480,25 @@ section {
 
     transform: scale(1.08);
 
+    background: #2563eb;
+
+    color: white;
 }
 
+@media (max-width: 768px) {
+
+    .back-button {
+
+        top: 90px;
+        left: 25px;
+
+        width: 45px;
+        height: 45px;
+
+        font-size: 20px;
+    }
+
+}
 
 
 /* =========================================
@@ -671,7 +688,6 @@ section {
 /* =========================================
    LOGO FIXA
 ========================================= */
-
 .logo-canto {
 
     position: fixed;
@@ -679,12 +695,31 @@ section {
     top: 20px;
     left: 20px;
 
-    z-index: 9999;
+    z-index: 99999;
+}
 
-    background: white;
+.logo-canto:hover {
+
+    transform: scale(1.08);
+}
+
+.logo-canto img {
+
+    width: 50px;
+
+    height: auto;
+}
+ 
+/* =========================================
+   LOGO 
+   ========================================= */
+
+.logo-home {
 
     width: 70px;
     height: 70px;
+
+    background: white;
 
     border-radius: 50%;
 
@@ -699,14 +734,12 @@ section {
     transition: .3s;
 }
 
-.logo-canto:hover {
-
-    transform: scale(1.08);
-}
-
-.logo-canto img {
+.logo-home img {
 
     width: 50px;
+}
 
-    height: auto;
+.logo-home:hover {
+
+    transform: scale(1.08);
 }
