@@ -152,6 +152,7 @@ def matricula():
                 print(f'Aluno {i+1}')
                 print(cursos_aluno)
                 print(periodos_aluno)
+                
 
                 # =========================
                 # VÍNCULO ALUNO/RESPONSÁVEL
@@ -279,27 +280,107 @@ def matricula():
                         transform: translateY(-4px);
                         background: #1d4ed8;
                     }
+                    .btn-whatsapp {
+
+                        display: block;
+
+                        width: 100%;
+
+                        padding: 16px;
+
+                        border-radius: 14px;
+
+                        background: #25d366;
+
+                        color: white;
+
+                        text-decoration: none;
+
+                        font-weight: bold;
+
+                        margin-bottom: 15px;
+
+                        transition: .3s ease;
+                    }
+
+                    .btn-whatsapp:hover {
+
+                        background: #20ba5a;
+
+                        transform: translateY(-4px);
+                    }
+
+                    .btn-voltar {
+
+                        display: block;
+
+                        width: 100%;
+
+                        padding: 16px;
+
+                        border-radius: 14px;
+
+                        background: #e2e8f0;
+
+                        color: #0f172a;
+
+                        text-decoration: none;
+
+                        font-weight: bold;
+
+                        transition: .3s ease;
+                    }
+
+                    .btn-voltar:hover {
+
+                        transform: translateY(-4px);
+
+                        background: #cbd5e1;
+                    }
                 </style>
             </head>
             <body>
+
                 <div class="sucesso-box">
+
                     <div class="icone">
                         🎉
                     </div>
+
                     <h1>
-                        Matrícula realizada!
+                        Pré-Matrícula Realizada!
                     </h1>
+
                     <p>
-                        Sua matrícula foi enviada com sucesso.<br>
-                        Em breve nossa equipe entrará em contato pelo WhatsApp.
+
+                        Seus dados foram enviados com sucesso. 
+                        Em breve a nossa equipe entrará em contato com você.
+
+                        <br><br>
+
+                        Para agilizar seu atendimento e garantir sua vaga,
+                        clique no botão abaixo e confirme sua pré-matrícula
+                        diretamente pelo WhatsApp.
+
                     </p>
+
+                    <a
+                        href="https://wa.me/5512997781432?text=Olá!%20Acabei%20de%20realizar%20minha%20pré-matrícula%20no%20site%20da%20Alfa%20Cursos%20e%20gostaria%20de%20receber%20mais%20informações."
+                        target="_blank"
+                        class="btn-whatsapp"
+                    >
+                        📲 Confirmar Pré-Matrícula
+                    </a>
+
                     <a
                         href="/"
-                        class="btn"
+                        class="btn-voltar"
                     >
-                        Voltar ao site
+                        Voltar ao Site
                     </a>
+
                 </div>
+
             </body>
             </html>
             """
