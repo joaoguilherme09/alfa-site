@@ -667,3 +667,46 @@ section {
 
 
 }
+
+/* =========================================
+   LOGO FIXA
+========================================= */
+
+.logo-canto {
+
+    position: fixed;
+
+    top: 20px;
+    left: 20px;
+
+    z-index: 9999;
+
+    background: white;
+
+    width: 70px;
+    height: 70px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.15);
+
+    transition: .3s;
+}
+
+.logo-canto:hover {
+
+    transform: scale(1.08);
+}
+
+.logo-canto img {
+
+    width: 50px;
+
+    height: auto;
+}
