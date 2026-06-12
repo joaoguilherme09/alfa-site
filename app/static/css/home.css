@@ -579,15 +579,40 @@
     background: #d4a017;
 }
 
+/* =========================================
+   INDICADOR MOBILE
+========================================= */
+
 .scroll-indicador {
 
-    display: flex;
+    display: none;
 
     justify-content: center;
 
+    align-items: center;
+
     gap: 10px;
 
-    margin-top: 20px;
+    margin-top: 25px;
+}
+
+.scroll-indicador .dot {
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 999px;
+
+    background: #cbd5e1;
+
+    transition: .3s ease;
+}
+
+.scroll-indicador .dot.active {
+
+    width: 30px;
+
+    background: #2563eb;
 }
 
 /* RESPONSIVO */
@@ -599,18 +624,49 @@
         grid-template-columns: repeat(2,1fr);
     }
 }
-
 @media(max-width: 768px){
 
     .cursos-grid {
 
-        grid-template-columns: 1fr;
+        display: flex;
+
+        overflow-x: auto;
+
+        gap: 20px;
+
+        scroll-snap-type: x mandatory;
+
+        -webkit-overflow-scrolling: touch;
+
+        padding: 10px 5px 20px;
+
+        grid-template-columns: unset;
+    }
+
+    .cursos-grid::-webkit-scrollbar {
+
+        display: none;
+    }
+
+    .curso-card {
+
+        min-width: 85%;
+
+        flex-shrink: 0;
+
+        scroll-snap-align: center;
     }
 
     .section-title h2 {
 
-        font-size: 3rem;
+        font-size: 2.4rem;
     }
+
+    .scroll-indicador {
+
+        display: flex;
+    }
+
 }
 /* =========================================
    DIFERENCIAIS
