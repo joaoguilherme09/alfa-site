@@ -1,7 +1,103 @@
 /* =========================================
-   CONFIG GERAL
+   LOGO + VOLTAR
 ========================================= */
 
+.logo-canto {
+
+    position: fixed;
+
+    top: 15px;
+    left: 15px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 10px;
+
+    z-index: 9999;
+}
+
+/* LOGO */
+
+.logo-home img {
+
+    width: 90px;
+
+    height: auto;
+
+    display: block;
+
+    filter:
+        drop-shadow(0 4px 12px rgba(0,0,0,.15));
+}
+
+/* BOTÃO VOLTAR */
+
+.back-button {
+
+    width: 45px;
+
+    height: 45px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.9);
+
+    box-shadow:
+        0 6px 20px rgba(0,0,0,.15);
+
+    transition: .3s;
+}
+
+.back-button img {
+
+    width: 22px;
+
+    height: 22px;
+
+    object-fit: contain;
+}
+
+.back-button:hover {
+
+    transform: scale(1.08);
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .logo-home img {
+
+        width: 70px;
+    }
+
+    .back-button {
+
+        width: 38px;
+        height: 38px;
+    }
+
+    .back-button img {
+
+        width: 18px;
+        height: 18px;
+    }
+
+}
+
+
+/* =========================================
+   CONFIG GERAL
+========================================= */
 body {
 
     margin: 0;
