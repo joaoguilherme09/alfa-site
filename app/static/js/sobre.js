@@ -1,53 +1,131 @@
-const slides =
-document.querySelectorAll(".slide");
+/* ===================== REVEAL AO ROLAR ===================== */
+(function () {
+  const reveals = document.querySelectorAll(".reveal");
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          io.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+  reveals.forEach((el) => io.observe(el));
+})();
 
-let current = 0;
+/* ===================== CONTADORES ANIMADOS ===================== */
+(function () {
+  const counters = document.querySelectorAll(".contador__num");
+  if (!counters.length) return;
+  let started = false;
 
-function mostrarSlide(index){
-
-    slides.forEach(slide =>
-        slide.classList.remove("active")
-    );
-
-    slides[index]
-        .classList.add("active");
-}
-
-document.querySelector(".next")
-.addEventListener("click", () => {
-
-    current++;
-
-    if(current >= slides.length){
-
-        current = 0;
+  function animate(el) {
+    const target = parseInt(el.dataset.target, 10);
+    const prefix = el.dataset.prefix || "";
+    const suffix = el.dataset.suffix || "";
+    const duration = 1800;
+    const start = performance.now();
+    function tick(now) {
+      const p = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = prefix + Math.floor(eased * target) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+      else el.textContent = prefix + target + suffix;
     }
+    requestAnimationFrame(tick);
+  }
 
-    mostrarSlide(current);
-});
+  const section = document.querySelector(".contadores");
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !started) {
+          started = true;
+          counters.forEach(animate);
+          io.disconnect();
+        }
+      });
+    },
+    { threshold: 0.4 }
+  );
+  if (section) io.observe(section);
+})();
 
-document.querySelector(".prev")
-.addEventListener("click", () => {
+/* ===================== SLIDER DA ESTRUTURA ===================== */
+(function () {
+  const slides = document.querySelectorAll(".slide");
+  if (!slides.length) return;
+  const prevBtn = document.querySelector(".slider-btn.prev");
+  const nextBtn = document.querySelector(".slider-btn.next");
+  const dotsWrap = document.getElementById("dots");
+  const slider = document.getElementById("slider");
+  let current = 0;
+  let timer;
 
-    current--;
+  slides.forEach((_, i) => {
+    const dot = document.createElement("button");
+    dot.setAttribute("aria-label", "Ir para imagem " + (i + 1));
+    dot.addEventListener("click", () => goTo(i));
+    dotsWrap.appendChild(dot);
+  });
+  const dots = Array.from(dotsWrap.children);
 
-    if(current < 0){
+  function show(i) {
+    slides.forEach((s) => s.classList.remove("active"));
+    dots.forEach((d) => d.classList.remove("is-active"));
+    slides[i].classList.add("active");
+    dots[i].classList.add("is-active");
+  }
+  function goTo(i) {
+    current = (i + slides.length) % slides.length;
+    show(current);
+    restart();
+  }
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
+  function start() { timer = setInterval(next, 5000); }
+  function restart() { clearInterval(timer); start(); }
 
-        current = slides.length - 1;
-    }
+  nextBtn.addEventListener("click", next);
+  prevBtn.addEventListener("click", prev);
+  slider.addEventListener("mouseenter", () => clearInterval(timer));
+  slider.addEventListener("mouseleave", start);
 
-    mostrarSlide(current);
-});
+  show(0);
+  start();
+})();
 
-setInterval(() => {
+/* ===================== CARROSSEL DE DEPOIMENTOS ===================== */
+(function () {
+  const track = document.getElementById("depoTrack");
+  if (!track) return;
+  const items = Array.from(track.children);
+  const dotsWrap = document.getElementById("depoDots");
+  let index = 0;
+  let timer;
 
-    current++;
+  items.forEach((_, i) => {
+    const dot = document.createElement("button");
+    dot.setAttribute("aria-label", "Depoimento " + (i + 1));
+    dot.addEventListener("click", () => goTo(i));
+    dotsWrap.appendChild(dot);
+  });
+  const dots = Array.from(dotsWrap.children);
 
-    if(current >= slides.length){
+  function update() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle("is-active", i === index));
+  }
+  function goTo(i) {
+    index = (i + items.length) % items.length;
+    update();
+    restart();
+  }
+  function start() { timer = setInterval(() => goTo(index + 1), 6000); }
+  function restart() { clearInterval(timer); start(); }
 
-        current = 0;
-    }
-
-    mostrarSlide(current);
-
-}, 5000);
+  update();
+  start();
+})();
