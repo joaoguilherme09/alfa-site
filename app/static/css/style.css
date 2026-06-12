@@ -437,7 +437,49 @@ section {
     color: #60a5fa;
 }
 
+/* =========================================
+   INDICADOR MOBILE
+========================================= */
 
+.scroll-indicador {
+
+    display: none;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.scroll-indicador .dot {
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: #cbd5e1;
+
+    transition: .3s ease;
+}
+
+.scroll-indicador .dot.active {
+
+    background: #2563eb;
+
+    width: 28px;
+
+    border-radius: 999px;
+}
+
+@media (max-width: 768px) {
+
+    .scroll-indicador {
+
+        display: flex;
+    }
+}
 
 
 /* =========================================
