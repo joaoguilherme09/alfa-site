@@ -273,52 +273,42 @@ h1, h2, h3, h4 { font-family: var(--serif); color: var(--navy); line-height: 1.1
 .contador__num { color: #fff; font-size: clamp(2.4rem, 5vw, 3.4rem); font-weight: 800; line-height: 1; }
 .contador p { color: rgba(255,255,255,.85); font-weight: 500; margin-top: 8px; }
 
-
 @media (max-width: 768px){
 
     .contadores{
-        padding: 50px 0;
+        padding: 40px 0;
     }
 
     .contadores__grid{
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 6px;
-        align-items: stretch;
+        display:flex;
+        justify-content:center;
+        gap:6px;
+        flex-wrap:nowrap;
     }
 
     .contador{
-        padding: 12px 4px;
-        border-radius: 14px;
-        min-width: 0;
+        flex:1;
+        min-width:0;
+        padding:12px 4px;
+        border-radius:14px;
     }
 
     .contador i{
-        width: 34px;
-        height: 34px;
-        font-size: .9rem;
-        margin-bottom: 6px;
-        border-radius: 10px;
+        width:38px;
+        height:38px;
+        font-size:.9rem;
+        margin-bottom:6px;
     }
 
     .contador__num{
-        font-size: 1.5rem !important;
+        font-size:1.6rem;
     }
 
     .contador p{
-        font-size: .65rem;
-        line-height: 1.1;
-        margin-top: 4px;
+        font-size:.65rem;
+        line-height:1.1;
+        margin-top:4px;
     }
-
-    .contador:hover{
-        transform: none;
-    }
-
-    .contador:hover .contador__num{
-        transform: none;
-    }
-
 }
 
 /* =========================================
