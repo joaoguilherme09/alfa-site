@@ -301,7 +301,9 @@ h1, h2, h3, h4 { font-family: var(--serif); color: var(--navy); line-height: 1.1
     }
 
     .contador__num{
-        font-size:1.6rem;
+        font-size:1.2rem;
+        line-height: 1;
+        letter-spacing: -1px;
     }
 
     .contador p{
