@@ -603,3 +603,25 @@ h1, h2, h3, h4 { font-family: var(--serif); color: var(--navy); line-height: 1.1
 .footer__map iframe{
     height: 300px;
 }
+
+
+.back-button{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.back-button img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.back-button:hover{
+    transform: scale(1.08);
+}
