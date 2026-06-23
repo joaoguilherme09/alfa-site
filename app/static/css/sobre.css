@@ -625,3 +625,54 @@ h1, h2, h3, h4 { font-family: var(--serif); color: var(--navy); line-height: 1.1
 .back-button:hover{
     transform: scale(1.08);
 }
+
+
+/* =========================================
+   VIDEO INSTITUCIONAL
+========================================= */
+
+.video-institucional{
+    background:#fff;
+    padding:80px 0;
+}
+
+.video-wrapper{
+    max-width:800px;
+    margin:0 auto;
+    border-radius:24px;
+    overflow:hidden;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.15);
+
+    transition:transform .3s ease;
+}
+
+.video-wrapper:hover{
+    transform:translateY(-5px);
+}
+
+.video-wrapper video{
+    display:block;
+    width:100%;
+    height:auto;
+    border-radius:24px;
+}
+
+/* MOBILE */
+
+@media (max-width:768px){
+
+    .video-institucional{
+        padding:70px 0;
+    }
+
+    .video-wrapper{
+        border-radius:18px;
+    }
+
+    .video-wrapper video{
+        border-radius:18px;
+    }
+
+}
