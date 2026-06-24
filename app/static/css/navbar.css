@@ -473,3 +473,20 @@
     }
 
 }
+
+
+
+
+.portal-btn{
+    background:#1677ff;
+    color:#fff !important;
+    padding:10px 20px;
+    border-radius:999px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.portal-btn:hover{
+    background:#0c4da2;
+    transform:translateY(-2px);
+}
