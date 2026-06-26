@@ -1,10 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <url>
-    <loc>https://alfaprofissionalizantes.com/</loc>
-    <lastmod>2026-06-26</lastmod>
-    <priority>1.0</priority>
-  </url>
+<url>
+<loc>https://alfaprofissionalizantes.com/</loc>
+<priority>1.0</priority>
+</url>
+
+<url>
+<loc>https://alfaprofissionalizantes.com/cursos.html</loc>
+</url>
+
+<url>
+<loc>https://alfaprofissionalizantes.com/sobre.html</loc>
+</url>
+
+<url>
+<loc>https://alfaprofissionalizantes.com/matricula.html</loc>
+</url>
+
+<url>
+<loc>https://alfaprofissionalizantes.com/cursos/embraer.html</loc>
+</url>
+
+<url>
+<loc>https://alfaprofissionalizantes.com/cursos/enem.html</loc>
+</url>
+
+<url>
+<loc>https://alfaprofissionalizantes.com/cursos/informatica.html</loc>
+</url>
+
+<url>
+<loc>https://alfaprofissionalizantes.com/cursos/ingles.html</loc>
+</url>
+
+<url>
+<loc>https://alfaprofissionalizantes.com/cursos/reforco.html</loc>
+</url>
 
 </urlset>
