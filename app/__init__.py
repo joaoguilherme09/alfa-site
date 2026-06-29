@@ -1,6 +1,7 @@
 import os
 from flask import Flask
 from dotenv import load_dotenv
+from flask import Flask, render_template
 
 load_dotenv()
 
@@ -31,5 +32,13 @@ def create_app():
     app.register_blueprint(home_bp)
     app.register_blueprint(cursos_bp)
     app.register_blueprint(matricula_bp)
+
+    @app.errorhandler(404)
+    def pagina_nao_encontrada(e):
+        return render_template('404.html'), 404
+
+    @app.errorhandler(500)
+    def erro_interno(e):
+        return render_template('500.html'), 500
 
     return app
