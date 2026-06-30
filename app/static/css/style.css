@@ -860,3 +860,24 @@ section {
   object-fit: contain;
   flex-shrink: 0;
 }
+
+
+.curso-info-centro .curso-container {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.curso-info-centro .curso-container p {
+    font-size: 1.05rem;
+    color: #475569;
+    line-height: 1.8;
+}
+
+.linha-destaque {
+    width: 60px;
+    height: 4px;
+    background: #2563eb;
+    border-radius: 4px;
+    margin: 16px auto 24px;
+}
