@@ -777,3 +777,22 @@ section {
 
     transform: scale(1.08);
 }
+
+
+.hero-btn-estrutura {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4);
+  animation: pulsar 2s infinite;
+}
+
+.hero-btn-estrutura:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5);
+}
+
+@keyframes pulsar {
+  0%, 100% { box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4); }
+  50% { box-shadow: 0 4px 24px rgba(245, 158, 11, 0.7); }
+}
