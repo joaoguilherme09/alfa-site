@@ -851,3 +851,12 @@ section {
     gap: 30px;
   }
 }
+
+
+/* Ajuste para imagens reais dos logos */
+.software-item img.software-icone {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
