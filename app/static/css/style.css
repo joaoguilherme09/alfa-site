@@ -933,3 +933,27 @@ section {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+
+
+
+
+/* ===== VÍDEO ===== */
+.video-section {
+    padding: 80px 24px;
+    background: #f8faff;
+    text-align: center;
+}
+
+.video-wrapper {
+    max-width: 700px;
+    margin: 40px auto 0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+}
+
+.video-wrapper video {
+    width: 100%;
+    display: block;
+}
