@@ -15,3 +15,7 @@ def sobre():
 @home_bp.route('/sitemap.xml')
 def sitemap():
     return send_from_directory(current_app.static_folder, "sitemap.xml")
+
+@home_bp.route('/alfatech')
+def alfatech():
+    return render_template('alfatech.html')
