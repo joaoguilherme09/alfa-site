@@ -233,3 +233,34 @@
   .tech-grid { grid-template-columns: 1fr; }
   .tech-hero { min-height: 100vh; }
 }
+
+/* MARCAS */
+.tech-marcas {
+  padding: 80px 24px;
+  background: #f8faff;
+}
+
+.tech-marcas-grid {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.tech-marca-logo {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  filter: grayscale(40%);
+  opacity: 0.8;
+  transition: filter 0.2s, opacity 0.2s, transform 0.2s;
+}
+
+.tech-marca-logo:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.1);
+}
