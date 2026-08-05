@@ -957,3 +957,22 @@ section {
     width: 100%;
     display: block;
 }
+
+.video-duplo {
+    max-width: 1000px;
+    margin: 40px auto 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.video-duplo .video-wrapper {
+    max-width: 100%;
+    margin: 0;
+}
+
+@media (max-width: 700px) {
+    .video-duplo {
+        grid-template-columns: 1fr;
+    }
+}
