@@ -19,3 +19,7 @@ def sitemap():
 @home_bp.route('/alfatech')
 def alfatech():
     return render_template('alfatech.html')
+
+@home_bp.route('/robots.txt')
+def robots():
+    return send_from_directory(current_app.static_folder, 'robots.txt')
